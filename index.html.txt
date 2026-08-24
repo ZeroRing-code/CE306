@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+</head>
+<body>
+
+<h2>Currency Converter</h2>
+
+<label>THB</label>
+<input type="number" id="thb">
+
+<label>USD</label>
+<input type="number" id="usd">
+
+<button onclick="thbToUsd()">THB → USD</button>
+<button onclick="usdToThb()">USD → THB</button>
+<button onclick="clearData()">ล้างข้อมูล</button>
+
+<h3>ประวัติการแปลง</h3>
+<ul id="history"></ul>
+
+<p id="updateTime"></p>
+
+<script>
+const rate = 35.5;
+let historyList = [];
+
+function addHistory(text){
+    historyList.unshift(text);
+
+    if(historyList.length > 10){
+        historyList.pop();
+    }
+
+    let ul = document.getElementById("history");
+    ul.innerHTML = "";
+
+    historyList.forEach(item=>{
+        ul.innerHTML += `<li>${item}</li>`;
+    });
+}
+
+function thbToUsd(){
+    let thb = parseFloat(document.getElementById("thb").value);
+
+    if(isNaN(thb)) return;
+
+    let usd = (thb / rate).toFixed(2);
+
+    document.getElementById("usd").value = usd;
+
+    addHistory(`${thb} THB → ${usd} USD`);
+}
+
+function usdToThb(){
+    let usd = parseFloat(document.getElementById("usd").value);
+
+    if(isNaN(usd)) return;
+
+    let thb = (usd * rate).toFixed(2);
+
+    document.getElementById("thb").value = thb;
+
+    addHistory(`${usd} USD → ${thb} THB`);
+}
+
+function clearData(){
+    document.getElementById("thb").value = "";
+    document.getElementById("usd").value = "";
+}
+
+document.getElementById("updateTime").innerText =
+"อัตราแลกเปลี่ยนอัปเดตล่าสุด: " +
+new Date().toLocaleString();
+</script>
+
+</body>
+</html>
