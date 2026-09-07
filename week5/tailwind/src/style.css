@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: #ecfeff;
+  --color-brand-100: #cffafe;
+  --color-brand-200: #a5f3fc;
+  --color-brand-300: #67e8f9;
+  --color-brand-400: #22d3ee;
+  --color-brand-500: #06b6d4;
+  --color-brand-600: #0891b2;
+  --color-brand-700: #0e7490;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --font-display: "Leelawadee UI", Tahoma, sans-serif;
+  --radius-card: 1.5rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand-400) 40%, transparent);
+  }
+}
