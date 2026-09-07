@@ -4,10 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tailwind Demo</title>
+    <title>test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/brower@4"></script>
+    <style type="text/tailwindcss">
+      @custome-variant dark {&;where(.dark, .dark *)};
+
+      @theme base {
+        --color-brand-50: #ecfeff;
+        --color-brand-100: #cffafe;
+        --color-brand-200: #a5f3fc;
+        --color-brand-300: #67e8f9;
+        --color-brand-400: #22d3ee;
+        --color-brand-500: #06b6d4;
+        --color-brand-600: #0891b2;
+        --color-brand-700: #0e7490;
+        --color-accent-300: #fcd34d;
+        --color-accent-400: #fbbf24;
+        --font-display: 'Leelawadee UI', Tahoma,sans-serif;
+        --radius-card: 1.5rem;
+      }
+      <html lang="th" class="scroll-smooth">
   </head>
-  <body>
+    <title>test</title>
+    <style type="text/tailwindcss">
+    
+
+    @layer base {
+      html {color-scheme: light;}
+      html.dark {color-scheme: dark;}
+      body {font-family: var(--font-display);}
+      ::selection {background: color-mix(in srgb, var(--color-brand-400) 40%, transparent);}
+    }
+  </style>
+  </head>
+  <body> class="min-h-screen overflow-x-hidden bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100">
+    <a href="main-content"class="sr-only z-50 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-lg shadow-slate-200 ring-1 ring-slate-900/5 transition hover:bg-slate-50 focus:outline-none focus-visible:ring focus-visible:ring-brand-500 focus-visible:ring-opacity-75 dark:bg-slate-800 dark:text-slate-100 dark:shadow-none dark:ring-white/10 dark:hover:bg-slate-700">Skip to main content</a>
     <main class="min-h-screen bg-slate-100 p-8">
       <h1 class="text-3xl font-bold text-slate-900">Tailwind is working</h1>
+
     </main>
     <script type="module" src="/src/main.js"></script>
   </body>
