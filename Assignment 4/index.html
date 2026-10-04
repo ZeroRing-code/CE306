@@ -4,149 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ตำนานจอมมารหัวหอมดิโอนิออน - Assignment 4</title>
-    <!-- ดึง Bootstrap 5 CSS ผ่าน CDN ยักษ์ใหญ่ -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- การเชื่อมต่อพึ่งพา Bootstrap 5 โครงสร้างสากลและดึงคลาสมาควบคุมดีไซน์ -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* ตกแต่งสไตล์ธีมวิหารดาร์กแฟนตาซีหลอนๆ */
-        body { background-color: #0d0914; color: #dcd1eb; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .navbar-custom { background-color: #1a1226 !important; border-bottom: 2px solid #4a2874; }
-        .hero-crimson { background: linear-gradient(rgba(13,9,20,0.85), rgba(42,16,77,0.9)), url('https://unsplash.com') center/cover; padding: 90px 0; border-bottom: 3px dashed #632b9b; }
-        .card-void { background-color: #1a1226; border: 1px solid #4a2874; color: #dcd1eb; transition: 0.3s; }
-        .card-void:hover { transform: scale(1.02); box-shadow: 0 0 15px #632b9b; }
-        .text-purple-neon { color: #bb86fc; text-shadow: 0 0 8px rgba(187,134,252,0.6); }
-        .btn-void { background-color: #632b9b; color: white; border: none; font-weight: bold; }
-        .btn-void:hover { background-color: #4a2874; color: #bb86fc; }
+        /* ตกแต่งสไตล์มืดดุดันเพิ่มเติมจากคลาสหลักของ Bootstrap */
+        body { background-color: #0c0813; color: #e2d8f0; font-family: system-ui, -apple-system, sans-serif; }
+        .bg-void { background-color: #160e22 !important; border: 2px solid #4c2885 !important; }
+        .bg-input-dark { background-color: #0c0813 !important; color: #fff !important; border: 1px solid #4c2885 !important; }
+        .bg-input-dark:focus { border-color: #8b5cf6 !important; box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25) !important; }
+        .text-neon-purple { color: #c084fc !important; }
+        .border-dashed-purple { border-bottom: 2px dashed #4c2885 !important; }
+        .cursor-pointer { cursor: pointer; }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-screen py-4">
 
-    <!-- โครงสร้างเมนูนำทางข้ามมิติ -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top shadow">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-purple-neon" href="#" onclick="switchPage('home')">🧅 LORD ONION</a>
+    <!-- ส่วนที่ 1: ระบบเมนูนำทาง (Navbar) ตามกติกา Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-purple shadow sticky-top mb-4" style="border-color: #4c2885 !important;">
+        <div class="container max-w-sm">
+            <a class="navbar-brand fw-black text-neon-purple fs-4 cursor-pointer" onclick="switchPage('home')">🧅 LORD ONION</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link cursor-pointer fw-bold" id="nav-home" href="#" onclick="switchPage('home')">บันทึกมืดหน้าแรก</a></li>
-                    <li class="nav-item"><a class="nav-link cursor-pointer" id="nav-bio" href="#" onclick="switchPage('bio')">ชีวประวัติสุดหลอน</a></li>
-                    <li class="nav-item"><a class="nav-link cursor-pointer" id="nav-deal" href="#" onclick="switchPage('deal')">ทำสัญญาขายวิญญาณ</a></li>
+                <ul class="navbar-nav ms-auto text-end small">
+                    <li class="nav-item"><a class="nav-link active fw-bold text-neon-purple cursor-pointer" id="nav-home" onclick="switchPage('home')">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link cursor-pointer" id="nav-bio" onclick="switchPage('bio')">ชีวประวัติสุดโหด</a></li>
+                    <li class="nav-item"><a class="nav-link cursor-pointer" id="nav-deal" onclick="switchPage('deal')">ทำสัญญาอัญเชิญ</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- หน้าที่ 1: บันทึกมืดหน้าแรก (Home Page) -->
-    <div id="page-home" class="page-content">
-        <header class="hero-crimson text-center">
-            <div class="container py-4">
-                <h1 class="display-4 fw-black text-purple-neon tracking-wide">วิหารจอมมารหัวหอมรุ่นที่ 99</h1>
-                <p class="lead my-4 text-muted">"เมื่อพวกแกหั่นข้า พวกแกนั่นแหละที่จะต้องหลั่งน้ำตา!" ตํานานสมุนไพรทลายล้างทวีป</p>
-                <button onclick="switchPage('bio')" class="btn btn-void btn-lg px-4 rounded-pill shadow">👁️ ปลดผนึกความทรงจำมั่วๆ</button>
-            </div>
-        </header>
-
-        <main class="container my-5">
-            <h2 class="text-center mb-4 fw-bold text-purple-neon">💀 ขีดจำกัดทางสายเลือดแห่งความหลอน</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card-void card h-100 p-3 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold text-warning">กลิ่นอายอเวจีโชย</h5>
-                            <p class="card-text small text-muted">พลังโจมตีวงกว้างกระจายกลิ่นฉุนระดับทำลายระบบประสาท ทำให้ผู้กล้าที่บุกรุกเข้ามาต้องแสบตา ร้องไห้โฮ และทรุดกราบแทบเท้าโดยไม่ได้ตั้งใจ</p>
-                        </div>
-                    </div>
+    <!-- พื้นที่จัดการเนื้อหาแยกหน้าของจอมมาร -->
+    <main class="container flex-grow-1" style="max-width: 480px;">
+        
+        <!-- หน้าที่ 1: หน้าหลักวิหารจอมมาร (Home Screen) -->
+        <section id="page-home" class="card bg-void text-light p-4 shadow-lg rounded-4">
+            <h2 class="text-center fw-bold text-neon-purple mb-2">วิหารจอมมารหัวหอมรุ่นที่ 99</h2>
+            <p class="text-center text-muted small fst-italic mb-4">"เมื่อพวกแกหั่นข้า พวกแกนั่นแหละที่จะต้องหลั่งน้ำตา!" ตำนานสมุนไพรทำลายล้างทวีป</p>
+            
+            <h3 class="fs-5 text-danger fw-bold border-dashed-purple pb-2 text-center mb-3">⚔️ ขีดจำกัดทางสายเลือดแห่งความโหด</h3>
+            <div class="d-flex flex-column gap-3 mb-4">
+                <div class="p-3 rounded-3" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(139, 92, 246, 0.15);">
+                    <h4 class="fs-6 text-warning fw-bold mb-2">กลิ่นอายอเวจีโชย</h4>
+                    <p class="m-0 text-secondary small">พลังโจมตีวงกว้างกระจายกลิ่นฉุนระดับทำลายระบบประสาท ทำให้ผู้กล้าที่บุกรุกเข้ามาต้องแสบตา ร้องไห้โฮ และทรุดกราบแทบเท้าอย่างหมดรูป</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card-void card h-100 p-3 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold text-danger">อมตะซ้อน 7 ชั้น</h5>
-                            <p class="card-text small text-muted">ร่างจอมมารเกิดจากการลอกคราบกลีบหัวหอมทับซ้อนกัน 7 ชั้น เมื่อนักรบฟันเลเยอร์แรกขาด จะเจอเลเยอร์ในที่หัวเราะหลอนกว่าเดิม</p>
-                        </div>
-                    </div>
+                <div class="p-3 rounded-3" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(139, 92, 246, 0.15);">
+                    <h4 class="fs-6 text-warning fw-bold mb-2">อมตะซ้อน 7 ชั้น</h4>
+                    <p class="m-0 text-secondary small">ร่างจอมมารเกิดจากการลอกคราบกลีบหัวหอมทับซ้อนกัน 7 ชั้น เมื่อนักรบฟันเลเยอร์แรกขาด จะเจอเลเยอร์ในที่หัวเราะโหดสะใจกว่าเดิม</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card-void card h-100 p-3 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold text-info">คำสาปแกงกะหรี่เดือด</h5>
-                            <p class="card-text small text-muted">จอมมารสามารถเปลี่ยนแม่น้ำทั้งสายให้กลายเป็นซุปแกงกะหรี่ข้นคลัก เพื่อต้มสิ่งมีชีวิตทั่วโลกให้สุกงอมกินคู่กับข้าวสวยร้อนๆ</p>
-                        </div>
-                    </div>
+                <div class="p-3 rounded-3" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(139, 92, 246, 0.15);">
+                    <h4 class="fs-6 text-warning fw-bold mb-2">คำสาปแกงกะหรี่เดือด</h4>
+                    <p class="m-0 text-secondary small">จอมมารสามารถเปลี่ยนแม่น้ำทั้งสายให้กลายเป็นซุปแกงกะหรี่ข้นคลัก เพื่อต้มสิ่งมีชีวิตทั่วโลกให้สุกงอมกินคู่กับข้าวสวยร้อนๆ</p>
                 </div>
             </div>
-        </main>
-    </div>
+            <button onclick="switchPage('bio')" class="btn btn-purple-neon w-100 py-2 fw-bold text-white rounded-3 shadow" style="background-color: #8b5cf6;">👁️ ปลดผนึกความทรงจำสุดโหด</button>
+        </section>
 
-    <!-- หน้าที่ 2: ชีวประวัติสุดหลอน (Bio Page) -->
-    <div id="page-bio" class="page-content hidden">
-        <div class="container my-5" style="max-width: 800px;">
-            <div class="p-4 p-md-5 mb-4 rounded card-void shadow">
-                <h1 class="display-5 fw-bold text-purple-neon mb-3">📖 พงศาวดารความมั่วซั่ว</h1>
-                <p class="lead text-muted">จุดเริ่มต้นจากแปลงผักหลังบ้าน สู่บัลลังก์หนามแห่งโลกมืด</p>
-                <hr class="bg-purple-neon">
-                <div class="space-y-4 text-start small">
-                    <p><strong>ปีศักดิ์สิทธิ์ที่ 0:</strong> ถือกำเนิดจากผลข้างเคียงของปุ๋ยเคมีหมดอายุผสมกับน้ำตาของแม่มดฝึกหัดที่อกหักจากคนเลี้ยงวัว ร่างกายเป็นหัวกลมสีม่วง ลืมตาขึ้นมาในหลุมแล้วตะโกนคำแรกว่า <i>"ข้าหิวมันบด!"</i></p>
-                    <p><strong>ปีศักดิ์สิทธิ์ที่ 15:</strong> ก่อตั้งกองทัพสมุนไพรป่า นำทัพต้นหอมป่าและกระเทียมโทนบุกยึดห้องครัวประจำปราสาทราชา เพื่อลบเมนูผัดผักกาดขาวออกไปจากโลกใบนี้อย่างถาวร</p>
-                    <p><strong>ปีศักดิ์สิทธิ์ที่ 400:</strong> บำเพ็ญเพียรในหม้อต้มซุปกระดูกหมูจนวิญญาณบรรลุขั้นสุดยอด กลายเป็น <b>จอมมารหัวหอมอมตะดิโอนิออน</b> ผู้ควบคุมความโศกเศร้าผ่านเอนไซม์แสบตา</p>
+        <!-- หน้าที่ 2: ชีวประวัติสุดโหด (Bio Screen) -->
+        <section id="page-bio" class="card bg-void text-light p-4 shadow-lg rounded-4 d-none">
+            <h2 class="text-center fw-bold text-danger mb-2">📖 พงศาวดารความโหดเหี้ยมมั่วซั่ว</h2>
+            <p class="text-center text-muted small mb-4">จุดเริ่มต้นจากแปลงผักหลังบ้าน สู่บัลลังก์หนามแห่งโลกมืด</p>
+            
+            <div class="d-flex flex-column gap-3 mb-4 text-start">
+                <div class="p-3 rounded-3" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(139, 92, 246, 0.15); font-size: 0.85rem;">
+                    <span class="text-neon-purple fw-bold block mb-1">ปีศักดิ์สิทธิ์ที่ 0:</span> ถือกำเนิดจากผลข้างเคียงของปุ๋ยเคมีหมดอายุผสมกับน้ำตาของแม่มดฝึกหัดที่อกหัก ร่างกายเป็นหัวกลมสีม่วง ลืมตาขึ้นมาในหลุมแล้วตะโกนคำแรกว่า "ข้าหิวมันบด!"
+                </div>
+                <div class="p-3 rounded-3" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(139, 92, 246, 0.15); font-size: 0.85rem;">
+                    <span class="text-neon-purple fw-bold block mb-1">ปีศักดิ์สิทธิ์ที่ 15:</span> ก่อตั้งกองทัพสมุนไพรป่า นำทัพต้นหอมป่าและกระเทียมโทนบุกยึดห้องครัวประจำปราสาทราชา เพื่อลบเมนูผัดผักกาดขาวออกไปจากโลกใบนี้อย่างถาวร
+                </div>
+                <div class="p-3 rounded-3" style="background-color: rgba(255,255,255,0.02); border: 1px solid rgba(139, 92, 246, 0.15); font-size: 0.85rem;">
+                    <span class="text-neon-purple fw-bold block mb-1">ปีศักดิ์สิทธิ์ที่ 400:</span> บำเพ็ญเพียรในหม้อต้มซุปกระดูกหมูจนวิญญาณบรรลุขั้นสุดยอด กลายเป็น จอมมารหัวหอมอมตะดิโอนิออน ผู้ควบคุมความโศกเศร้าผ่านเอนไซม์แสบตาอันโหดเหี้ยม
                 </div>
             </div>
-        </div>
-    </div>
+            <button onclick="switchPage('deal')" class="btn w-100 py-2 fw-bold text-white rounded-3 shadow" style="background-color: #ef4444;">😈 ไปทำสัญญาเลือด</button>
+        </section>
 
-    <!-- หน้าที่ 3: ทำสัญญาขายวิญญาณ (Form Page) -->
-    <div id="page-deal" class="page-content hidden">
-        <div class="container my-5" style="max-width: 550px;">
-            <div class="card-void card p-4 shadow">
-                <h2 class="text-center mb-4 fw-bold text-purple-neon">😈 คัมภีร์อัญเชิญ/ถวายเครื่องสังเวย</h2>
-                <form onsubmit="executeContract(event)">
-                    <div class="mb-3">
-                        <label class="form-label small text-muted">ชื่อผู้หลงผิดที่จะยอมสวามิภักดิ์:</label>
-                        <input type="text" id="victim-name" class="form-control bg-dark text-white border-secondary" required placeholder="กรอกชื่อเหยื่อรายต่อไป">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label small text-muted">สิ่งแลกเปลี่ยนที่แกจะมอบให้จอมมาร:</label>
-                        <select id="victim-item" class="form-select bg-dark text-white border-secondary">
-                            <option value="น้ำตา 4 ลิตร">น้ำตาแห่งความสิ้นหวัง 4 ลิตร</option>
-                            <option value="วิญญาณชั้นใต้ดิน">วิญญาณคนครัวที่หั่นต้นหอมบ่อยๆ</option>
-                            <option value="หมูกรอบชิ้นสุดท้าย">หมูกรอบชิ้นสุดท้ายในจานของแก</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label small text-muted">ข้อความสาปแช่งถึงพวกผู้กล้า:</label>
-                        <textarea class="form-control bg-dark text-white border-secondary" rows="3" placeholder="บ่นอะไรหลอนๆ ทิ้งไว้ตรงนี้..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-void w-100 py-2 shadow">🔥 กดยอมรับสัญญาเลือดมั่วๆ</button>
-                </form>
-            </div>
-        </div>
-    </div>
+        <!-- หน้าที่ 3: ทำสัญญาถวายเครื่องสังเวย (Form Screen) -->
+        <section id="page-deal" class="card bg-void text-light p-4 shadow-lg rounded-4 d-none">
+            <h2 class="text-center fw-bold text-warning mb-2">😈 คัมภีร์ถวายเครื่องสังเวย</h2>
+            <p class="text-center text-muted small mb-4">จงยอมสวามิภักดิ์ต่อจอมมารหัวหอมเพื่อแลกกับพลังอันยิ่งใหญ่</p>
+            
+            <form onsubmit="executeContract(event)">
+                <div class="mb-3 text-start">
+                    <label for="victim-name" class="form-label small text-muted fw-bold">ชื่อผู้หลงผิดที่ยอมทำสัญญา:</label>
+                    <input type="text" id="victim-name" class="form-control bg-input-dark" required placeholder="กรอกชื่อของแกเพื่อลงนาม">
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="victim-item" class="form-label small text-muted fw-bold">สิ่งแลกเปลี่ยนที่แกจะมอบให้จอมมาร:</label>
+                    <select id="victim-item" class="form-select bg-input-dark">
+                        <option value="น้ำตาแห่งความสิ้นหวัง 4 ลิตร">น้ำตาแห่งความสิ้นหวัง 4 ลิตร</option>
+                        <option value="วิญญาณคนครัวที่ชอบหั่นหอม">วิญญาณคนครัวที่ชอบหั่นหอม</option>
+                        <option value="หมูกรอบชิ้นสุดท้ายในจาน">หมูกรอบชิ้นสุดท้ายในจานของแก</option>
+                    </select>
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="victim-msg" class="form-label small text-muted fw-bold">คำปฏิญาณแบบโหด ๆ ดุดัน:</label>
+                    <textarea id="victim-msg" class="form-control bg-input-dark" rows="3" placeholder="พิมพ์คำสาปแช่งหรือคำปฏิญาณทิ้งไว้ตรงนี้..."></textarea>
+                </div>
+                <button type="submit" class="btn w-100 py-2 fw-bold text-dark rounded-3 shadow" style="background-color: #fbbf24;">🔥 ส่งสัญญาเลือดสวามิภักดิ์</button>
+            </form>
+        </section>
+    </main>
 
-    <footer class="bg-dark text-center text-muted py-3 mt-auto border-top border-secondary">
-        <div class="container small">© 2026 The Dark Lord of Onions Domain - Bootstrap 5 Arcane Edition</div>
+    <footer class="text-center py-3 mt-4 border-top border-dark" style="border-color: #1f1235 !important;">
+        <div class="container max-w-sm small text-muted">© 2026 The Dark Lord of Onions Domain - Assignment 4</div>
     </footer>
 
-    <!-- ส่วนควบคุมลอจิกสลับหน้ามั่วๆ แบบเสถียรไร้บั๊ก -->
+    <!-- โค้ด JavaScript ระบบเปลี่ยนหน้าและลอจิกการทำงาน -->
     <script>
         function switchPage(pageId) {
-            // ซ่อนทุกหน้าจอ
-            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
-            // เคลียร์สถานะเมนูลิงก์Active
-            document.querySelectorAll('.navbar-nav .nav-link').forEach(el => el.classList.remove('active', 'fw-bold', 'text-purple-neon'));
-            
-            // เปิดหน้าจอที่เลือก
-            document.getElementById('page-' + pageId).classList.remove('hidden');
-            // ไฮไลต์ปุ่มเมนูที่ตรงกัน
-            const activeNav = document.getElementById('nav-' + pageId);
-            if(activeNav) activeNav.classList.add('active', 'fw-bold', 'text-purple-neon');
+            const pages = ['home', 'bio', 'deal'];
+            const navs = ['home', 'bio', 'deal'];
+
+            pages.forEach((key) => {
+                const page = document.getElementById('page-' + key);
+                const nav = document.getElementById('nav-' + key);
+
+                if (page) page.classList.add('d-none');
+                if (nav) {
+                    nav.classList.remove('active', 'fw-bold', 'text-neon-purple');
+                    nav.classList.add('text-white');
+                }
+            });
+
+            const targetPage = document.getElementById('page-' + pageId);
+            const targetNav = document.getElementById('nav-' + pageId);
+
+            if (targetPage) targetPage.classList.remove('d-none');
+            if (targetNav) {
+                targetNav.classList.add('active', 'fw-bold', 'text-neon-purple');
+                targetNav.classList.remove('text-white');
+            }
         }
 
         function executeContract(e) {
             e.preventDefault();
-            const name = document.getElementById('victim-name').value;
+            const name = document.getElementById('victim-name').value.trim() || 'ผู้หลงผิด';
             const item = document.getElementById('victim-item').value;
-            alert(`☠️ จอมมารหัวหอมได้รับสัญญาของเจ้า '${name}' แล้ว! เตรียมตัวจ่ายเครื่องสังเวยเป็น [${item}] ภายในคืนนี้ ฮ่าๆๆๆๆ!`);
+            const message = document.getElementById('victim-msg').value.trim();
+
+            alert(`☠️ จอมมารหัวหอมได้รับสัญญาอันโหดเหี้ยมของเจ้า '${name}' แล้ว!\nเตรียมตัวจ่ายเครื่องสังเวยเป็น [${item}] ภายในคืนนี้\n${message ? 'คำปฏิญาณ: ' + message : 'ไม่มีคำปฏิญาณที่ระบุ'}\nฮ่าๆๆๆๆ!`);
         }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
