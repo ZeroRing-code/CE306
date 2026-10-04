@@ -4,126 +4,292 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS Epic Game - Assignment 5</title>
-    <!-- ลิงก์ดึงสไตล์ภายนอกเข้ามาช่วยจัดหน้าจอให้สวยงาม -->
-    <script src="https://tailwindcss.com"></script>
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
     <style>
-        :root { --bg-dark: #0f172a; --bg-card: #1e293b; }
-        body { background-color: var(--bg-dark); }
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --bg-input: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --success: #10b981;
+            --danger: #f43f5e;
+            --warning: #fbbf24;
+            --border: #334155;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .container {
+            max-width: 450px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #a5b4fc;
+        }
+        .btn-top {
+            background-color: var(--border);
+            color: var(--text-main);
+            border: 1px solid #475569;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .btn-action {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .btn-action:hover {
+            background-color: var(--primary-hover);
+        }
+        .score-board {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            background-color: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            align-items: center;
+        }
+        .score-team h3 {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .score-num {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-top: 2px;
+        }
+        .score-target {
+            font-size: 0.7rem;
+            background-color: var(--border);
+            padding: 4px 6px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+        .status-banner {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background-color: rgba(251, 191, 36, 0.1);
+            color: var(--warning);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+        .battle-arena {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 15px 0;
+        }
+        .battle-slot {
+            background-color: var(--bg-input);
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 10px;
+        }
+        .slot-title {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .slot-emoji {
+            font-size: 3rem;
+        }
+        .weapon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .btn-weapon {
+            background-color: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 4px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: white;
+        }
+        .btn-weapon:hover {
+            border-color: var(--primary);
+            background-color: #273549;
+        }
+        .weapon-label {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .hidden { display: none !important; }
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 100;
+        }
+        .modal-body {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 300px;
+            width: 100%;
+            font-size: 0.8rem;
+        }
+        .modal-body h4 {
+            margin: 0 0 8px 0;
+            color: #a5b4fc;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+        }
+        .modal-body ul {
+            padding-left: 14px;
+            margin: 0 0 14px 0;
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #475569;
+        }
         @media (forced-colors: active) {
-            button, select, input { border: 2px solid ButtonText !important; }
+            button, select, input, .score-board, .battle-slot { border: 2px solid ButtonText !important; }
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between p-4 transition-colors duration-200 dark">
+<body>
 
-    <!-- ส่วนหัวเครื่องมือ -->
-    <header class="w-full max-w-md mx-auto flex justify-between items-center py-3 border-b border-slate-700 mb-6">
-        <h1 class="text-xl font-black text-indigo-400 tracking-wider">✊✌️✋ RPS EPIC</h1>
-        <div class="flex gap-2">
-            <button onclick="toggleModal('rules-modal')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-bold rounded-lg border border-slate-700 transition">📖 วิธีเล่น</button>
-            <button onclick="document.body.classList.toggle('dark')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-bold rounded-lg border border-slate-700 transition">🌓 โหมด</button>
-        </div>
+<div class="container">
+    <header>
+        <h1>✊✌️✋ RPS Epic Game</h1>
+        <button onclick="toggleModal('rules-modal')" class="btn-top">📖 วิธีเล่น</button>
     </header>
 
-    <!-- พื้นที่แสดงผลการเล่น -->
-    <main class="flex-grow w-full max-w-md mx-auto flex flex-col items-center justify-center">
-        
-        <!-- หน้าจอที่ 1: ตั้งค่าเริ่มต้น -->
-        <section id="setup-screen" class="w-full bg-slate-800 p-6 rounded-2xl shadow-2xl border border-slate-700/50 text-center">
-            <h2 class="text-2xl font-extrabold mb-2 text-indigo-300">ศึกเป่ายิ้งฉุบกู้โลก</h2>
-            <p class="text-xs text-slate-400 mb-6">กติกา: ทำแต้มให้ถึงเป้าหมายก่อนบอทเพื่อชนะเลเวลนั้น</p>
-            
-            <form onsubmit="startGame(event)" class="space-y-4">
-                <div class="text-left">
-                    <label class="text-xs font-bold text-slate-400 block mb-1">ชื่อผู้กล้า:</label>
-                    <input type="text" id="player-name" required value="ผู้กล้า" class="w-full px-4 py-2 border border-slate-600 rounded-xl bg-slate-900 text-white outline-none focus:border-indigo-500 transition">
+    <main>
+        <section id="setup-screen" class="card">
+            <h2 class="setup-title" style="margin:0 0 6px 0; font-size:1.2rem;">⚔️ ศึกเป่ายิ้งฉุบกู้โลก</h2>
+            <p class="setup-desc" style="margin:0 0 20px 0; font-size:0.75rem; color:var(--text-muted);">สะสมแต้มการชนะให้ถึงเป้าหมายก่อนบอทเพื่อเคลียร์เลเวล</p>
+            <form onsubmit="startGame(event)">
+                <div class="form-group">
+                    <label for="player-name">ชื่อผู้กล้าของคุณ:</label>
+                    <input type="text" id="player-name" required value="ผู้กล้า">
                 </div>
-                <div class="text-left">
-                    <label class="text-xs font-bold text-slate-400 block mb-1">เลเวลระดับความยาก:</label>
-                    <select id="game-level" class="w-full px-4 py-2 border border-slate-600 rounded-xl bg-slate-900 text-white outline-none focus:border-indigo-500 transition">
-                        <option value="3">Level 1: ชนะ 3 แต้มก่อน (ฝึกหัด)</option>
-                        <option value="5">Level 2: ชนะ 5 แต้มก่อน (ท้าทาย)</option>
-                        <option value="7">Level 3: ชนะ 7 แต้มก่อน (ปรมาจารย์)</option>
+                <div class="form-group">
+                    <label for="game-level">ระดับความยาก (เลเวล):</label>
+                    <select id="game-level">
+                        <option value="3">Level 1: ฝึกหัด (ชนะ 3 แต้มก่อน)</option>
+                        <option value="5">Level 2: ท้าทาย (ชนะ 5 แต้มก่อน)</option>
+                        <option value="7">Level 3: ปรมาจารย์ (ชนะ 7 แต้มก่อน)</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/30 transition active:scale-95 text-sm">⚔️ เข้าสู่สมรภูมิ</button>
+                <button type="submit" class="btn-action">เข้าสู่สมรภูมิ</button>
             </form>
         </section>
 
-        <!-- หน้าจอที่ 2: กระดานบอร์ดเกมหลัก -->
-        <section id="game-screen" class="hidden w-full space-y-4 text-center animate-fade-in">
-            <!-- ตารางคะแนน -->
-            <div class="grid grid-cols-3 gap-2 bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-700/60 items-center">
-                <div>
-                    <span id="display-player-name" class="font-bold text-indigo-400 text-sm block truncate">ผู้เล่น</span>
-                    <div class="text-3xl font-black mt-1 text-emerald-400" id="player-score">0</div>
+        <section id="game-screen" class="card hidden">
+            <div class="score-board">
+                <div class="score-team">
+                    <h3 id="display-player-name" style="color:#818cf8;">ผู้เล่น</h3>
+                    <div class="score-num" id="player-score" style="color:var(--success);">0</div>
                 </div>
-                <div class="py-2 px-1 bg-slate-900/60 rounded-xl border border-slate-700 text-[10px] font-bold tracking-wider text-slate-400">
-                    เป้าหมาย: <span id="target-score" class="text-indigo-400">3</span> แต้ม
-                </div>
-                <div>
-                    <span class="font-bold text-rose-400 text-sm block truncate">บอทจอมโหด</span>
-                    <div class="text-3xl font-black mt-1 text-rose-400" id="bot-score">0</div>
+                <div class="score-target">เป้าหมาย: <span id="target-score">3</span> แต้ม</div>
+                <div class="score-team">
+                    <h3 style="color:var(--danger);">บอทจอมโหด</h3>
+                    <div class="score-num" id="bot-score" style="color:var(--danger);">0</div>
                 </div>
             </div>
 
-            <!-- ข้อความสถานะการต่อสู้ -->
-            <div id="status-message" class="text-sm font-bold py-3 px-4 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-xl">
-                ศึกเริ่มแล้ว! กดเลือกอาวุธด้านล่าง หรือกดเลข 1, 2, 3
+            <div id="status-message" class="status-banner">
+                ศึกเริ่มแล้ว! เลือกอาวุธด้านล่าง หรือกดเลข 1, 2, 3
             </div>
 
-            <!-- กล่องโชว์ผลลัพธ์อาวุธ -->
-            <div class="grid grid-cols-2 gap-4 my-4">
-                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700/50 shadow-inner">
-                    <div class="text-xs text-slate-400 font-bold mb-2">คุณเลือก</div>
-                    <div id="player-choice-emoji" class="text-5xl filter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]">❓</div>
+            <div class="battle-arena">
+                <div class="battle-slot">
+                    <div class="slot-title">คุณเลือก</div>
+                    <div id="player-choice-emoji" class="slot-emoji">❓</div>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700/50 shadow-inner">
-                    <div class="text-xs text-slate-400 font-bold mb-2">บอทเลือก</div>
-                    <div id="bot-choice-emoji" class="text-5xl filter drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]">❓</div>
+                <div class="battle-slot">
+                    <div class="slot-title">บอทเลือก</div>
+                    <div id="bot-choice-emoji" class="slot-emoji">❓</div>
                 </div>
             </div>
 
-            <!-- ปุ่มกดเลือกอาวุธ -->
-            <div class="grid grid-cols-3 gap-3">
-                <button onclick="playTurn('rock')" class="p-4 bg-slate-800 hover:bg-slate-750 border-2 border-slate-700 rounded-2xl text-3xl transition transform hover:-translate-y-1 active:translate-y-0 active:scale-95 shadow-md">
-                    ✊<span class="block text-[10px] font-bold text-slate-400 mt-1">ค้อน (1)</span>
-                </button>
-                <button onclick="playTurn('paper')" class="p-4 bg-slate-800 hover:bg-slate-750 border-2 border-slate-700 rounded-2xl text-3xl transition transform hover:-translate-y-1 active:translate-y-0 active:scale-95 shadow-md">
-                    ✋<span class="block text-[10px] font-bold text-slate-400 mt-1">กระดาษ (2)</span>
-                </button>
-                <button onclick="playTurn('scissors')" class="p-4 bg-slate-800 hover:bg-slate-750 border-2 border-slate-700 rounded-2xl text-3xl transition transform hover:-translate-y-1 active:translate-y-0 active:scale-95 shadow-md">
-                    ✌️<span class="block text-[10px] font-bold text-slate-400 mt-1">กรรไกร (3)</span>
-                </button>
+            <div class="weapon-grid">
+                <button onclick="playTurn('rock')" class="btn-weapon">✊<span class="weapon-label">ค้อน (1)</span></button>
+                <button onclick="playTurn('paper')" class="btn-weapon">✋<span class="weapon-label">กระดาษ (2)</span></button>
+                <button onclick="playTurn('scissors')" class="btn-weapon">✌️<span class="weapon-label">กรรไกร (3)</span></button>
             </div>
-
-            <button onclick="resetGame()" class="w-full mt-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-xs font-bold text-slate-400 transition">🔄 ยอมแพ้และกลับหน้าแรก</button>
-        </section>
-    </main>
-
-    <footer class="w-full text-center text-[10px] text-slate-500 border-t border-slate-800 pt-4 mt-6">
-        CE306 Web Applications - Assignment 5
-    </footer>
-
-    <!-- ป๊อปอัพกติกาปุ่มลัด -->
-    <div id="rules-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-        <div class="bg-slate-800 border border-slate-700 p-6 rounded-2xl max-w-xs w-full text-xs shadow-2xl">
-            <h3 class="text-sm font-black text-indigo-400 mb-3 pb-2 border-b border-slate-700 flex items-center gap-2">📖 คู่มือปุ่มลัดระบบเกม</h3>
-            <p class="text-slate-300 space-y-2 leading-relaxed">
-                • ค้อน ✊ ชนะ กรรไกร ✌️<br>
-                • กรรไกร ✌️ ชนะ กระดาษ ✋<br>
-                • กระดาษ ✋ ชนะ ค้อน ✊<br><br>
-                <span class="bg-indigo-500/20 text-indigo-300 px-1.5 py-0.5 rounded font-bold">🔥 คีย์บอร์ดลัดด่วน:</span><br>
-                กดเลข <b>1</b> = ค้อน | เลข <b>2</b> = กระดาษ | เลข <b>3</b> = กรรไกร
-            </p>
-            <button onclick="toggleModal('rules-modal')" class="w-full mt-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition">ตกลง เข้าใจแล้ว</button>
-        </div>
-    </div>
-
-    <!-- เชื่อมต่อระบบการทำงานกับกล่องที่ 2 -->
-    <script src="script.js"></script>
-</body>
-</html>
+            
