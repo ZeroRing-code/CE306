@@ -293,3 +293,90 @@
                 <button onclick="playTurn('scissors')" class="btn-weapon">✌️<span class="weapon-label">กรรไกร (3)</span></button>
             </div>
             
+🔄 ยอมแพ้และกลับหน้าแรก
+
+CE306 Web Applications - Assignment 5
+📖 คู่มือกติกาและปุ่มลัด
+
+ค้อน ✊ ชนะ กรรไกร ✌️
+กรรไกร ✌️ ชนะ กระดาษ ✋
+กระดาษ ✋ ชนะ ค้อน ✊
+คีย์บอร์ดลัด: สามารถกดเลข 1 (ค้อน), 2 (กระดาษ), หรือ 3 (กรรไกร) เพื่อออกอาวุธได้ทันที!
+
+รับทราบ
+
+let pName = "ผู้กล้า", pScore = 0, bScore = 0, winTarget = 3, isGameOver = false;
+const em = { rock: "✊", paper: "✋", scissors: "✌️" };
+function toggleModal(id) {
+document.getElementById(id).classList.toggle('hidden');
+}
+function resetGame() {
+document.getElementById('setup-screen').classList.remove('hidden');
+document.getElementById('game-screen').classList.add('hidden');
+}
+function startGame(e) {
+e.preventDefault();
+pName = document.getElementById('player-name').value.trim() || "ผู้กล้า";
+winTarget = parseInt(document.getElementById('game-level').value);
+pScore = 0; bScore = 0; isGameOver = false;
+document.getElementById('display-player-name').innerText = pName;
+document.getElementById('target-score').innerText = winTarget;
+document.getElementById('player-score').innerText = 0;
+document.getElementById('bot-score').innerText = 0;
+document.getElementById('player-choice-emoji').innerText = "❓";
+document.getElementById('bot-choice-emoji').innerText = "❓";
+const msg = document.getElementById('status-message');
+msg.innerText = "ศึกเริ่มแล้ว! เลือกออกอาวุธของคุณได้เลย";
+msg.style.backgroundColor = "rgba(251, 191, 36, 0.1)";
+msg.style.color = "var(--warning)";
+msg.style.borderColor = "rgba(251, 191, 36, 0.2)";
+document.getElementById('setup-screen').classList.add('hidden');
+document.getElementById('game-screen').classList.remove('hidden');
+}
+function playTurn(pChoice) {
+if (isGameOver) return;
+const ch = ['rock', 'paper', 'scissors'];
+const bChoice = ch[Math.floor(Math.random() * 3)];
+document.getElementById('player-choice-emoji').innerText = em[pChoice];
+document.getElementById('bot-choice-emoji').innerText = em[bChoice];
+const msg = document.getElementById('status-message');
+if (pChoice === bChoice) {
+msg.innerText = เสมอ! ทั้งคู่เลือกออก ${em[pChoice]};
+msg.style.backgroundColor = "rgba(71, 85, 105, 0.2)";
+msg.style.color = "#cbd5e1";
+msg.style.borderColor = "#475569";
+} else if (
+(pChoice === 'rock' && bChoice === 'scissors') ||
+(pChoice === 'paper' && bChoice === 'rock') ||
+(pChoice === 'scissors' && bChoice === 'paper')
+) {
+pScore++;
+document.getElementById('player-score').innerText = pScore;
+msg.innerText = คุณได้แต้ม! ${em[pChoice]} ชนะ ${em[bChoice]};
+msg.style.backgroundColor = "rgba(16, 185, 129, 0.15)";
+msg.style.color = "var(--success)";
+msg.style.borderColor = "rgba(16, 185, 129, 0.3)";
+} else {
+bScore++;
+document.getElementById('bot-score').innerText = bScore;
+msg.innerText = บอทได้แต้ม! ${em[bChoice]} ชนะ ${em[pChoice]};
+msg.style.backgroundColor = "rgba(244, 63, 94, 0.15)";
+msg.style.color = "var(--danger)";
+msg.style.borderColor = "rgba(244, 63, 94, 0.3)";
+}
+if (pScore >= winTarget) {
+msg.innerText = 🎉 คุณ ${pName} ชนะเลเวลนี้อย่างสมบูรณ์แบบ!;
+msg.style.backgroundColor = "var(--success)"; msg.style.color = "white";
+isGameOver = true;
+} else if (bScore >= winTarget) {
+msg.innerText = "💀 คุณพ่ายแพ้ให้กับบอทจอมโหดแล้ว!";
+msg.style.backgroundColor = "var(--danger)"; msg.style.color = "white";
+isGameOver = true;
+}
+}
+window.addEventListener('keydown', function (e) {
+if (document.getElementById('game-screen').classList.contains('hidden') || document.activeElement.tagName === 'INPUT') return;
+if (e.key === '1') playTurn('rock');
+else if (e.key === '2') playTurn('paper');
+else if (e.key === '3') playTurn('scissors');
+});
