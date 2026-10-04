@@ -244,8 +244,8 @@
             <p class="setup-desc" style="margin:0 0 20px 0; font-size:0.75rem; color:var(--text-muted);">สะสมแต้มการชนะให้ถึงเป้าหมายก่อนบอทเพื่อเคลียร์เลเวล</p>
             <form onsubmit="startGame(event)">
                 <div class="form-group">
-                    <label for="player-name">ชื่อผู้กล้าของคุณ:</label>
-                    <input type="text" id="player-name" required value="ผู้กล้า">
+                    <label for="player-name">ชื่อของคุณ:</label>
+                    <input type="text" id="player-name" required value="Player 1">
                 </div>
                 <div class="form-group">
                     <label for="game-level">ระดับความยาก (เลเวล):</label>
@@ -314,7 +314,7 @@
 </div>
 
 <script>
-    let playerName = "ผู้กล้า", playerScore = 0, botScore = 0, winTarget = 3, isGameOver = false;
+    let playerName = "Player 1", playerScore = 0, botScore = 0, winTarget = 3, isGameOver = false;
     const em = { rock: "✊", paper: "✋", scissors: "✌️" };
 
     function toggleModal(id) {
@@ -326,7 +326,7 @@
         document.getElementById('setup-screen').classList.remove('hidden');
         document.getElementById('game-screen').classList.add('hidden');
         document.getElementById('rules-modal').classList.add('hidden');
-        playerName = 'ผู้กล้า';
+        playerName = 'Player 1';
         playerScore = 0;
         botScore = 0;
         winTarget = 3;
@@ -337,7 +337,7 @@
 
     function startGame(e) {
         e.preventDefault();
-        playerName = document.getElementById('player-name').value.trim() || 'ผู้กล้า';
+        playerName = document.getElementById('player-name').value.trim() || 'Player 1';
         winTarget = parseInt(document.getElementById('game-level').value, 10) || 3;
         playerScore = 0;
         botScore = 0;
