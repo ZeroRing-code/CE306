@@ -250,10 +250,10 @@
                 <div class="form-group">
                     <label for="game-level">ระดับความยาก (เลเวล):</label>
                     <select id="game-level">
-                        <option value="3">Level 1: ฝึกหัด (ชนะ 3 แต้มก่อน)</option>
-                        <option value="5">Level 2: ท้าทาย (ชนะ 5 แต้มก่อน)</option>
-                        <option value="7">Level 3: ปรมาจารย์ (ชนะ 7 แต้มก่อน)</option>
-                    </select>
+                        <option value="3">Level 1: ง่าย (ชนะ 3 แต้มก่อน)</option>
+                        <option value="5">Level 2: ปกติ (ชนะ 5 แต้มก่อน)</option>
+                        <option value="7">Level 3: ยาก (ชนะ 7 แต้มก่อน)</option>
+                   </select>
                 </div>
                 <button type="submit" class="btn-action">เข้าสู่สมรภูมิ</button>
             </form>
@@ -262,12 +262,12 @@
         <section id="game-screen" class="card hidden">
             <div class="score-board">
                 <div class="score-team">
-                    <h3 id="display-player-name" style="color:#818cf8;">ผู้เล่น</h3>
+                    <h3 id="display-player-name" style="color:#818cf8;">Player</h3>
                     <div class="score-num" id="player-score" style="color:var(--success);">0</div>
                 </div>
                 <div class="score-target">เป้าหมาย: <span id="target-score">3</span> แต้ม</div>
                 <div class="score-team">
-                    <h3 style="color:var(--danger);">บอทจอมโหด</h3>
+                    <h3 style="color:var(--danger);">Bot</h3>
                     <div class="score-num" id="bot-score" style="color:var(--danger);">0</div>
                 </div>
             </div>
@@ -278,11 +278,11 @@
 
             <div class="battle-arena">
                 <div class="battle-slot">
-                    <div class="slot-title">คุณเลือก</div>
+                    <div class="slot-title">You</div>
                     <div id="player-choice-emoji" class="slot-emoji">❓</div>
                 </div>
                 <div class="battle-slot">
-                    <div class="slot-title">บอทเลือก</div>
+                    <div class="slot-title">Bot</div>
                     <div id="bot-choice-emoji" class="slot-emoji">❓</div>
                 </div>
             </div>
