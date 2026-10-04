@@ -288,95 +288,143 @@
             </div>
 
             <div class="weapon-grid">
-                <button onclick="playTurn('rock')" class="btn-weapon">✊<span class="weapon-label">ค้อน (1)</span></button>
-                <button onclick="playTurn('paper')" class="btn-weapon">✋<span class="weapon-label">กระดาษ (2)</span></button>
-                <button onclick="playTurn('scissors')" class="btn-weapon">✌️<span class="weapon-label">กรรไกร (3)</span></button>
+                <button type="button" onclick="playTurn('rock')" class="btn-weapon">✊<span class="weapon-label">ค้อน (1)</span></button>
+                <button type="button" onclick="playTurn('paper')" class="btn-weapon">✋<span class="weapon-label">กระดาษ (2)</span></button>
+                <button type="button" onclick="playTurn('scissors')" class="btn-weapon">✌️<span class="weapon-label">กรรไกร (3)</span></button>
             </div>
-            
-🔄 ยอมแพ้และกลับหน้าแรก
 
-CE306 Web Applications - Assignment 5
-📖 คู่มือกติกาและปุ่มลัด
+            <button type="button" onclick="resetGame()" class="btn-action" style="background-color:var(--border); margin-top:14px;">🔄 ยอมแพ้และกลับหน้าแรก</button>
+        </section>
+    </main>
 
-ค้อน ✊ ชนะ กรรไกร ✌️
-กรรไกร ✌️ ชนะ กระดาษ ✋
-กระดาษ ✋ ชนะ ค้อน ✊
-คีย์บอร์ดลัด: สามารถกดเลข 1 (ค้อน), 2 (กระดาษ), หรือ 3 (กรรไกร) เพื่อออกอาวุธได้ทันที!
+    <footer>CE306 Web Applications - Assignment 5</footer>
+</div>
 
-รับทราบ
+<div id="rules-modal" class="modal-overlay hidden" onclick="if (event.target === this) toggleModal('rules-modal')">
+    <div class="modal-body" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+        <h4 id="rules-title">📖 คู่มือกติกาและปุ่มลัด</h4>
+        <ul>
+            <li>ค้อน ✊ ชนะ กรรไกร ✌️</li>
+            <li>กรรไกร ✌️ ชนะ กระดาษ ✋</li>
+            <li>กระดาษ ✋ ชนะ ค้อน ✊</li>
+        </ul>
+        <p style="margin:0; line-height:1.6;">คีย์บอร์ดลัด: สามารถกดเลข 1 (ค้อน), 2 (กระดาษ), หรือ 3 (กรรไกร) เพื่อออกอาวุธได้ทันที!</p>
+        <button type="button" class="btn-action" onclick="toggleModal('rules-modal')" style="margin-top:16px;">รับทราบ</button>
+    </div>
+</div>
 
-let pName = "ผู้กล้า", pScore = 0, bScore = 0, winTarget = 3, isGameOver = false;
-const em = { rock: "✊", paper: "✋", scissors: "✌️" };
-function toggleModal(id) {
-document.getElementById(id).classList.toggle('hidden');
-}
-function resetGame() {
-document.getElementById('setup-screen').classList.remove('hidden');
-document.getElementById('game-screen').classList.add('hidden');
-}
-function startGame(e) {
-e.preventDefault();
-pName = document.getElementById('player-name').value.trim() || "ผู้กล้า";
-winTarget = parseInt(document.getElementById('game-level').value);
-pScore = 0; bScore = 0; isGameOver = false;
-document.getElementById('display-player-name').innerText = pName;
-document.getElementById('target-score').innerText = winTarget;
-document.getElementById('player-score').innerText = 0;
-document.getElementById('bot-score').innerText = 0;
-document.getElementById('player-choice-emoji').innerText = "❓";
-document.getElementById('bot-choice-emoji').innerText = "❓";
-const msg = document.getElementById('status-message');
-msg.innerText = "ศึกเริ่มแล้ว! เลือกออกอาวุธของคุณได้เลย";
-msg.style.backgroundColor = "rgba(251, 191, 36, 0.1)";
-msg.style.color = "var(--warning)";
-msg.style.borderColor = "rgba(251, 191, 36, 0.2)";
-document.getElementById('setup-screen').classList.add('hidden');
-document.getElementById('game-screen').classList.remove('hidden');
-}
-function playTurn(pChoice) {
-if (isGameOver) return;
-const ch = ['rock', 'paper', 'scissors'];
-const bChoice = ch[Math.floor(Math.random() * 3)];
-document.getElementById('player-choice-emoji').innerText = em[pChoice];
-document.getElementById('bot-choice-emoji').innerText = em[bChoice];
-const msg = document.getElementById('status-message');
-if (pChoice === bChoice) {
-msg.innerText = เสมอ! ทั้งคู่เลือกออก ${em[pChoice]};
-msg.style.backgroundColor = "rgba(71, 85, 105, 0.2)";
-msg.style.color = "#cbd5e1";
-msg.style.borderColor = "#475569";
-} else if (
-(pChoice === 'rock' && bChoice === 'scissors') ||
-(pChoice === 'paper' && bChoice === 'rock') ||
-(pChoice === 'scissors' && bChoice === 'paper')
-) {
-pScore++;
-document.getElementById('player-score').innerText = pScore;
-msg.innerText = คุณได้แต้ม! ${em[pChoice]} ชนะ ${em[bChoice]};
-msg.style.backgroundColor = "rgba(16, 185, 129, 0.15)";
-msg.style.color = "var(--success)";
-msg.style.borderColor = "rgba(16, 185, 129, 0.3)";
-} else {
-bScore++;
-document.getElementById('bot-score').innerText = bScore;
-msg.innerText = บอทได้แต้ม! ${em[bChoice]} ชนะ ${em[pChoice]};
-msg.style.backgroundColor = "rgba(244, 63, 94, 0.15)";
-msg.style.color = "var(--danger)";
-msg.style.borderColor = "rgba(244, 63, 94, 0.3)";
-}
-if (pScore >= winTarget) {
-msg.innerText = 🎉 คุณ ${pName} ชนะเลเวลนี้อย่างสมบูรณ์แบบ!;
-msg.style.backgroundColor = "var(--success)"; msg.style.color = "white";
-isGameOver = true;
-} else if (bScore >= winTarget) {
-msg.innerText = "💀 คุณพ่ายแพ้ให้กับบอทจอมโหดแล้ว!";
-msg.style.backgroundColor = "var(--danger)"; msg.style.color = "white";
-isGameOver = true;
-}
-}
-window.addEventListener('keydown', function (e) {
-if (document.getElementById('game-screen').classList.contains('hidden') || document.activeElement.tagName === 'INPUT') return;
-if (e.key === '1') playTurn('rock');
-else if (e.key === '2') playTurn('paper');
-else if (e.key === '3') playTurn('scissors');
-});
+<script>
+    let playerName = "ผู้กล้า", playerScore = 0, botScore = 0, winTarget = 3, isGameOver = false;
+    const em = { rock: "✊", paper: "✋", scissors: "✌️" };
+
+    function toggleModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.toggle('hidden');
+    }
+
+    function resetGame() {
+        document.getElementById('setup-screen').classList.remove('hidden');
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('rules-modal').classList.add('hidden');
+        playerName = 'ผู้กล้า';
+        playerScore = 0;
+        botScore = 0;
+        winTarget = 3;
+        isGameOver = false;
+        document.getElementById('player-name').value = playerName;
+        document.getElementById('game-level').value = '3';
+    }
+
+    function startGame(e) {
+        e.preventDefault();
+        playerName = document.getElementById('player-name').value.trim() || 'ผู้กล้า';
+        winTarget = parseInt(document.getElementById('game-level').value, 10) || 3;
+        playerScore = 0;
+        botScore = 0;
+        isGameOver = false;
+
+        document.getElementById('display-player-name').innerText = playerName;
+        document.getElementById('target-score').innerText = winTarget;
+        document.getElementById('player-score').innerText = 0;
+        document.getElementById('bot-score').innerText = 0;
+        document.getElementById('player-choice-emoji').innerText = '❓';
+        document.getElementById('bot-choice-emoji').innerText = '❓';
+
+        const msg = document.getElementById('status-message');
+        msg.innerText = 'ศึกเริ่มแล้ว! เลือกออกอาวุธของคุณได้เลย';
+        msg.style.backgroundColor = 'rgba(251, 191, 36, 0.1)';
+        msg.style.color = 'var(--warning)';
+        msg.style.borderColor = 'rgba(251, 191, 36, 0.2)';
+
+        document.getElementById('setup-screen').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+    }
+
+    function playTurn(pChoice) {
+        if (isGameOver) return;
+
+        const choices = ['rock', 'paper', 'scissors'];
+        const bChoice = choices[Math.floor(Math.random() * choices.length)];
+        document.getElementById('player-choice-emoji').innerText = em[pChoice];
+        document.getElementById('bot-choice-emoji').innerText = em[bChoice];
+
+        const msg = document.getElementById('status-message');
+
+        if (pChoice === bChoice) {
+            msg.innerText = `เสมอ! ทั้งคู่เลือกออก ${em[pChoice]}`;
+            msg.style.backgroundColor = 'rgba(71, 85, 105, 0.2)';
+            msg.style.color = '#cbd5e1';
+            msg.style.borderColor = '#475569';
+        } else if (
+            (pChoice === 'rock' && bChoice === 'scissors') ||
+            (pChoice === 'paper' && bChoice === 'rock') ||
+            (pChoice === 'scissors' && bChoice === 'paper')
+        ) {
+            playerScore++;
+            document.getElementById('player-score').innerText = playerScore;
+            msg.innerText = `คุณได้แต้ม! ${em[pChoice]} ชนะ ${em[bChoice]}`;
+            msg.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+            msg.style.color = 'var(--success)';
+            msg.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+        } else {
+            botScore++;
+            document.getElementById('bot-score').innerText = botScore;
+            msg.innerText = `บอทได้แต้ม! ${em[bChoice]} ชนะ ${em[pChoice]}`;
+            msg.style.backgroundColor = 'rgba(244, 63, 94, 0.15)';
+            msg.style.color = 'var(--danger)';
+            msg.style.borderColor = 'rgba(244, 63, 94, 0.3)';
+        }
+
+        if (playerScore >= winTarget) {
+            msg.innerText = `🎉 คุณ ${playerName} ชนะเลเวลนี้อย่างสมบูรณ์แบบ!`;
+            msg.style.backgroundColor = 'var(--success)';
+            msg.style.color = 'white';
+            msg.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+            isGameOver = true;
+        } else if (botScore >= winTarget) {
+            msg.innerText = '💀 คุณพ่ายแพ้ให้กับบอทจอมโหดแล้ว!';
+            msg.style.backgroundColor = 'var(--danger)';
+            msg.style.color = 'white';
+            msg.style.borderColor = 'rgba(244, 63, 94, 0.3)';
+            isGameOver = true;
+        }
+    }
+
+    window.addEventListener('keydown', function (e) {
+        const gameScreen = document.getElementById('game-screen');
+        const activeTag = document.activeElement ? document.activeElement.tagName : '';
+
+        if (gameScreen.classList.contains('hidden') || activeTag === 'INPUT' || activeTag === 'SELECT') return;
+
+        if (e.key === '1') {
+            playTurn('rock');
+        } else if (e.key === '2') {
+            playTurn('paper');
+        } else if (e.key === '3') {
+            playTurn('scissors');
+        }
+    });
+</script>
+</body>
+</html>
+
