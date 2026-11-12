@@ -1,0 +1,8 @@
+#!/bin/bash
+cmd=$1
+
+if path=$(which "$cmd" 2>/dev/null); then
+    echo "พบที่: $path"
+else
+    echo "ไม่พบคำสั่งนี้ใน PATH"
+fi

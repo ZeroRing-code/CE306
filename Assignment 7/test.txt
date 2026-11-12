@@ -1,0 +1,17 @@
+#!/bin/bash
+cmd=$1
+
+# 1. ตรวจสอบว่าผู้ใช้ใส่ argument มาหรือไม่
+if [ -z "$cmd" ]; then
+    echo "กรุณาระบุชื่อคำสั่ง เช่น: ./checkpath.sh git"
+    exit 1
+fi
+
+# 2-4. ใช้ which ตรวจสอบโครงสร้างใน PATH และ print ผลลัพธ์
+if path=$(which "$cmd" 2>/dev/null); then
+    echo "พบที่: $path"
+fi
+
+if [ $? -ne 0 ]; then
+    echo "ไม่พบคำสั่งนี้ใน PATH"
+fi
