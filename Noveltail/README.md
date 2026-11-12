@@ -2,7 +2,7 @@
 
 คู่มือติดตั้งและใช้งานโปรเจกต์ Noveltail ฉบับภาษาไทย ไฟล์นี้อยู่ระดับเดียวกับ `NoveltailApp/` และ `Noveltail_full.sql`
 
-> **ความปลอดภัยของฐานข้อมูล:** `Noveltail_full.sql` เป็น backup โครงสร้างสะอาดและข้อมูลตั้งต้นประเภทนิยาย/ประเภทเรื่องเท่านั้น ไม่มีบัญชีผู้ใช้เดิม หลัง Restore ให้สร้าง SUPER_ADMIN ด้วย initializer ก่อนเข้าสู่ระบบ ห้าม Restore ทับฐานข้อมูลที่ใช้งานอยู่หรือฐาน Production
+> **เรื่องข้อมูลในฐานข้อมูล:** `Noveltail_full.sql` เป็น backup โครงสร้างพร้อม **ข้อมูลสาธิต** ได้แก่ ประเภทนิยาย 13 ประเภท, บัญชีทดสอบ 2 บัญชี (`SuperAdmin`, `User1`), นิยายตัวอย่าง 1 เรื่อง (`TestNovel` 2 ตอน) และ Wallet ของบัญชีทดสอบ ใช้สำหรับสาธิตในเครื่องเท่านั้น ห้าม Restore ทับฐานข้อมูลที่ใช้งานอยู่หรือฐาน Production
 
 ## 1. ภาพรวมโครงการ
 
@@ -21,7 +21,7 @@ Noveltail เป็นเว็บไซต์สำหรับค้นหา 
 - ค้นหาและอ่านนิยาย จัดการนิยายและตอนสำหรับผู้เขียน
 - Bookmark, Reading History, Follow ผู้เขียน/นิยาย, Comments, Replies, Reviews และ Reactions
 - Wallet เหรียญจำลอง, Top-up, Paid Chapter, Ledger และการทำรายการย้อนกลับ
-- Notifications, Announcements (including pinned Home carousel), Reports, Moderation, Suspension และ Appeals
+- Notifications, Announcements (รวมถึง Carousel ประกาศที่ปักหมุดบนหน้า Home), Reports, Moderation, Suspension และ Appeals
 - หน้าจัดการรายงานและหน้าจัดการบัญชี ADMIN สำหรับ SUPER_ADMIN
 - ธีมสว่าง/มืดและ Layout แบบ Responsive
 
@@ -29,7 +29,7 @@ Noveltail เป็นเว็บไซต์สำหรับค้นหา 
 
 ## 4. เทคโนโลยี
 
-- Node.js และ Express
+- Node.js และ Express 5
 - PostgreSQL ผ่าน `pg` connection pool
 - HTML, CSS และ Vanilla JavaScript
 - Tailwind CSS v4
@@ -70,23 +70,27 @@ Noveltail/
 |   |-- package-lock.json
 |   |-- server.js
 |   `-- PROJECT_DECISIONS.md
-|-- Noveltail_full.sql          # PostgreSQL clean backup
+|-- example/                    # ภาพหน้าจอผลการทำงานของระบบ
+|-- Noveltail_full.sql          # PostgreSQL backup (โครงสร้าง + ข้อมูลสาธิต)
 `-- README.md
 ```
 
 ## 7. สิ่งที่ต้องติดตั้ง
 
 1. Node.js รุ่น LTS ที่ยังได้รับการสนับสนุน พร้อม npm
-2. PostgreSQL 18 (backup นี้สร้างจาก PostgreSQL 18)
+2. PostgreSQL 16 ขึ้นไป (ทดสอบ Restore กับ PostgreSQL 16 แล้ว ใช้ 17 หรือ 18 ได้เช่นกัน)
 3. PostgreSQL Command Line Tools: `psql`, `createdb`, `pg_dump`, `pg_restore`
 4. สิทธิ์สร้างฐานข้อมูลใหม่แบบ Local/Disposable
-5. Chromium ของ Playwright เฉพาะเมื่อต้องรัน Browser Tests
+5. Git (เฉพาะเมื่อดาวน์โหลดโค้ดจาก GitHub)
+6. Chromium ของ Playwright เฉพาะเมื่อต้องรัน Browser Tests
 
-บน Windows หากไม่พบคำสั่ง PostgreSQL ให้เพิ่ม `C:\Program Files\PostgreSQL\18\bin` เข้า `PATH` หรือเรียกไฟล์ `.exe` ด้วย path เต็ม
+ไม่ต้องส่งหรือคัดลอกโฟลเดอร์ `node_modules` ไปกับโปรเจกต์ เพราะติดตั้งใหม่ได้ด้วย `npm ci`
+
+บน Windows หากไม่พบคำสั่ง PostgreSQL ให้เพิ่ม `C:\Program Files\PostgreSQL\<เวอร์ชันที่ติดตั้ง>\bin` เข้า `PATH` หรือเรียกไฟล์ `.exe` ด้วย path เต็ม
 
 ## 8. ติดตั้ง PostgreSQL
 
-ติดตั้ง PostgreSQL 18 จากผู้จัดจำหน่ายที่เชื่อถือได้ แล้วเริ่ม PostgreSQL Service ตั้งรหัสผ่านของผู้ดูแลฐานข้อมูลอย่างปลอดภัย และตรวจสอบ:
+ติดตั้ง PostgreSQL (16 ขึ้นไป) จากผู้จัดจำหน่ายที่เชื่อถือได้ แล้วเริ่ม PostgreSQL Service ตั้งรหัสผ่านของผู้ดูแลฐานข้อมูลอย่างปลอดภัย และตรวจสอบ:
 
 ```powershell
 psql --version
@@ -112,7 +116,7 @@ Restore ไฟล์ SQL ไปยังฐานที่เพิ่งสร�
 psql -h localhost -p 5432 -U postgres -d Noveltail_local -v ON_ERROR_STOP=1 -f .\Noveltail_full.sql
 ```
 
-รอให้คำสั่งจบโดยไม่มี Error ไฟล์เป็น Plain SQL และไม่สร้างฐานข้อมูลปลายทางให้อัตโนมัติ Schema ที่ Restore มี 29 ตาราง, 20 sequences, 89 indexes, 288 constraints, function และ trigger โดยคงข้อมูลตั้งต้น 13 genres ไว้ ไม่มีบัญชีผู้ใช้, wallets, rate-limit entries หรือนิยาย/เนื้อหาผู้ใช้
+รอให้คำสั่งจบโดยไม่มี Error ไฟล์เป็น Plain SQL และไม่สร้างฐานข้อมูลปลายทางให้อัตโนมัติ Schema ที่ Restore มี 29 ตาราง, 89 indexes, function และ trigger พร้อมข้อมูลสาธิตตามที่ระบุไว้ด้านบนและในหัวข้อ 15
 
 ## 11. ตั้งค่า Environment
 
@@ -128,12 +132,12 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 |---|---|
 | `DB_HOST` | `localhost` |
 | `DB_PORT` | `5432` หรือ Port ที่ติดตั้งไว้ |
-| `DB_NAME` | `Noveltail_local` |
+| `DB_NAME` | `Noveltail_local` (ต้องตรงกับชื่อฐานที่ Restore) |
 | `DB_USER` | `postgres` สำหรับ Local ที่ใช้ Restore ด้วยผู้ดูแลฐาน |
 | `DB_PASSWORD` | รหัสผ่าน PostgreSQL Local |
 | `DB_SSL` | `false` สำหรับ PostgreSQL Local ที่ไม่ใช้ TLS |
 | `DB_POOL_MAX` | ใช้ค่าเริ่มต้นใน `.env.example` ได้ |
-| `JWT_SECRET` | แทนค่า Placeholder ด้วย Secret สุ่มที่ไม่ซ้ำและยาวอย่างน้อย 32 bytes |
+| `JWT_SECRET` | แทนค่า Placeholder ด้วย Secret สุ่มที่ไม่ซ้ำ ยาวอย่างน้อย 32 ตัวอักษร (ถ้าสั้นกว่านี้เซิร์ฟเวอร์จะไม่เริ่มทำงาน) |
 | `NODE_ENV` | `development` |
 | `PORT` | `3000` หรือ Port ว่าง |
 | `APP_ORIGIN` | เว้นว่างสำหรับการพัฒนา Local แบบตรง หรือกำหนด Origin ให้ตรงกับเว็บไซต์ |
@@ -177,17 +181,32 @@ npm start
 
 เปิด `http://localhost:3000` ใน Browser และหยุด Server ด้วย `Ctrl+C`
 
-## 15. สมัครสมาชิกและเข้าสู่ระบบ
+## 15. บัญชีสำหรับสาธิตและการสมัครสมาชิก
 
-- ผู้ใช้ทั่วไปสมัครได้จากหน้า Authentication แล้วเข้าสู่ระบบด้วย Username หรือ Email
-- บัญชีใหม่เริ่มด้วย Wallet ศูนย์เหรียญ
-- หลัง Restore ต้องสร้าง SUPER_ADMIN ก่อน โดยอยู่ในโฟลเดอร์ `NoveltailApp/` แล้วรัน:
+หลัง Restore `Noveltail_full.sql` เข้าสู่ระบบได้ทันทีด้วยบัญชีทดสอบต่อไปนี้ (ผ่านการทดสอบเข้าสู่ระบบแล้ว)
+
+| บัญชี | Username | Email | Role | รหัสผ่าน | ข้อมูลที่มีมา |
+|---|---|---|---|---|---|
+| ผู้ดูแลสูงสุด | `SuperAdmin` | `SuperAdmin@gmail.com` | SUPER_ADMIN | `12345678` | เป็นเจ้าของนิยาย `TestNovel` |
+| ผู้ใช้ทั่วไป | `User1` | `user1@gmail.com` | USER | `12345678` | Wallet 999 เหรียญ |
+
+เข้าสู่ระบบด้วย Username หรือ Email ก็ได้ และ `TestNovel` มี 2 ตอน คือตอนที่ 1 อ่านฟรี และตอนที่ 2 เป็นตอนเสียเหรียญราคา 1 เหรียญ
+
+> **คำเตือน:** รหัสผ่าน `12345678` ใช้เพื่อการสาธิตบนเครื่อง Local เท่านั้น เป็นรหัสที่คาดเดาง่าย ห้ามใช้กับฐานข้อมูลที่เปิดให้ผู้อื่นเข้าถึง ห้ามนำไป Deploy จริง และต้องเปลี่ยนก่อนใช้งานนอกเหนือจากการสาธิต
+
+- ผู้ใช้ทั่วไปสมัครเพิ่มได้จากหน้า Authentication แล้วเข้าสู่ระบบด้วย Username หรือ Email
+- Username ต้องยาว 3–30 ตัวอักษร ใช้ได้เฉพาะตัวอักษรภาษาอังกฤษ ตัวเลข และ `_` และรหัสผ่านต้องยาวอย่างน้อย 8 ตัวอักษร
+- บัญชีใหม่เริ่มด้วย Wallet ศูนย์เหรียญ (เติมเหรียญจำลองได้จากหน้า Wallet)
+
+### สร้าง SUPER_ADMIN ด้วย initializer (เฉพาะฐานที่ไม่มี SUPER_ADMIN)
+
+ขั้นตอนนี้ **ไม่จำเป็น** เมื่อใช้ `Noveltail_full.sql` ของโปรเจกต์นี้ เพราะมี `SuperAdmin` อยู่แล้ว ใช้เมื่อสร้างฐานใหม่จาก Schema ที่ไม่มีบัญชีเท่านั้น โดยอยู่ในโฟลเดอร์ `NoveltailApp/` แล้วรัน:
 
 ```powershell
 node .\scripts\initialize-superadmin.js
 ```
 
-สคริปต์จะแสดง Database Identity ที่เชื่อมต่อและให้พิมพ์ชื่อฐานเพื่อยืนยัน จากนั้นรับรหัสผ่านแบบไม่แสดงบนหน้าจอ สร้าง bcrypt hash cost 12 ในหน่วยความจำ และส่งให้ SQL Initialization บัญชีที่สร้างคือ `SuperAdmin` / `SuperAdmin@gmail.com` โดยไม่มีรหัสผ่านตั้งต้นที่ฝังไว้ใน Source หรือ Backup การรันซ้ำจะไม่เขียนทับบัญชี รหัสผ่าน หรือ Wallet เดิม
+สคริปต์จะแสดง Database Identity ที่เชื่อมต่อและให้พิมพ์ชื่อฐานเพื่อยืนยัน จากนั้นรับรหัสผ่านแบบไม่แสดงบนหน้าจอ สร้าง bcrypt hash cost 12 ในหน่วยความจำ และส่งให้ SQL Initialization บัญชีที่สร้างคือ `SuperAdmin` / `SuperAdmin@gmail.com` โดยไม่มีรหัสผ่านตั้งต้นที่ฝังไว้ใน Source การรันซ้ำจะไม่เขียนทับบัญชี รหัสผ่าน หรือ Wallet เดิม
 
 การเปลี่ยนรหัสผ่าน SUPER_ADMIN ทำได้ผ่าน SQL เท่านั้น ใช้คำสั่งนี้เพื่อให้สคริปต์รับรหัสผ่านใหม่แบบซ่อนและทำ SQL Update:
 
@@ -219,7 +238,7 @@ node .\scripts\initialize-superadmin.js --reset-password
 - เปิดนิยายที่เผยแพร่และเลือก Chapter จากรายการ
 - ใช้ Reader เพื่ออ่านและย้ายไปยังตอนที่เข้าถึงได้
 - เข้าสู่ระบบเพื่อเก็บ History, Bookmark, Follow, Comment และ Review
-- สิทธิ์การอ่านตรวจสอบที่ Server; การแก้ค่าใน Browser ไม่ปลดล็อกเนื้อหา
+- สิทธิ์การอ่านตรวจสอบที่ Server; การแก้ค่าใน Browser ไม่ปลดล็อกเนื้อหา (ตอนที่ยังไม่ปลดล็อก Server ตอบ HTTP 402 และไม่ส่งเนื้อหา)
 
 ## 19. Wallet และ Paid Chapter
 
@@ -227,18 +246,18 @@ node .\scripts\initialize-superadmin.js --reset-password
 - Top-up Packages คงที่: 50, 100, 300, 500 และ 1,000 เหรียญ
 - การซื้อและ Top-up ใช้ Idempotency Key เพื่อป้องกันการคิดยอดซ้ำ
 - Wallet ห้ามติดลบและ Ledger เป็น Append-only
-- รายได้ Chapter แบ่งผู้เขียน 90% / ระบบ 10%; ส่วนของผู้เขียนปัดลงเป็นจำนวนเต็มและส่วนที่เหลือเป็นของระบบ
+- รายได้ Chapter แบ่งผู้เขียน 90% / ระบบ 10%; ส่วนของผู้เขียนปัดลงเป็นจำนวนเต็มและส่วนที่เหลือเป็นของระบบ (เช่น ตอนราคา 100 เหรียญ ผู้เขียนได้ 90 ระบบได้ 10 แต่ตอนราคา 1 เหรียญ ผู้เขียนได้ 0 ระบบได้ 1)
 - Refund/Cancel เป็นรายการกลับบัญชีใหม่ที่อ้างอิงรายการต้นทาง ไม่แก้หรือลบ Ledger เดิม
 
 ห้ามใช้ระบบนี้รับหรือแทนเงินจริง
 
-## 20. คู่มือ Admin และการจัดการ Role
+## 20. Admin และการจัดการ Role
 
 - ADMIN และ SUPER_ADMIN เข้าหน้า Admin Dashboard ได้ตาม Role และสิทธิ์ที่กำหนดใน `NoveltailApp/PROJECT_DECISIONS.md`
 - Dashboard มี Workflow สำหรับ Moderation, Account Suspension, Appeals, Wallet Reversal, Report และ Announcements
 - ผู้ดูแลสามารถ Preview ประกาศ ใส่ลิงก์ HTTP/HTTPS หรือ path ภายใน ตั้งค่าการปักหมุด/ลำดับ แสดงบนหน้า Home และยกเลิกการเผยแพร่หรือลบประกาศได้
 - เฉพาะ SUPER_ADMIN เท่านั้นที่ค้นหาผู้ใช้ กรอง Role แต่งตั้ง USER เป็น ADMIN หรือถอดถอน ADMIN กลับเป็น USER ผ่านหน้า Manage Accounts ได้
-- ก่อนเปลี่ยน Role หน้าเว็บขอการยืนยันและเหตุผล ทุกการเปลี่ยนจริงถูกบันทึกใน `admin_action_logs`
+- ก่อนเปลี่ยน Role หน้าเว็บขอการยืนยันและเหตุผล (3–500 ตัวอักษร) ทุกการเปลี่ยนจริงถูกบันทึกใน `admin_action_logs`
 - API ตรวจ `role === SUPER_ADMIN` ที่ Backend และรับเฉพาะ `USER`/`ADMIN`; ไม่อนุญาตให้สร้างหรือแก้ SUPER_ADMIN ผ่าน Web/API
 
 กรณีฉุกเฉินที่ต้องจัดการ ADMIN ผ่าน SQL โดยตรง ให้ทำจากฐานที่ยืนยันตัวตนแล้วเท่านั้น คำสั่งจะใช้ SuperAdmin ปัจจุบันเป็นผู้กระทำและบันทึก Audit Log ใน Transaction:
@@ -301,11 +320,25 @@ npx playwright install chromium
 
 `npm run migration:check` เป็นการตรวจ Schema แบบ Read-only ไม่ Apply Migration
 
+### ผลการทดสอบล่าสุด
+
+ทดสอบบน Linux กับ PostgreSQL 16 และ Node.js 22 (13 พ.ย. 2569 ตามเวลาท้องถิ่น 12 พ.ย. 2026)
+
+| รายการ | ผล |
+|---|---|
+| ตรวจ syntax ไฟล์ JavaScript ทั้งหมด (81 ไฟล์) | ผ่านทั้งหมด |
+| Restore `Noveltail_full.sql` | ได้ 29 ตาราง, 13 ประเภทนิยาย, 89 indexes |
+| ทดสอบการใช้งานผ่าน HTTP 24 รายการ (สมัคร, CSRF, Wallet, Top-up, Idempotency, ซื้อตอน, คอมเมนต์, ประวัติการอ่าน, สิทธิ์ Admin) | ผ่านทั้ง 24 รายการ |
+| เข้าสู่ระบบด้วย `SuperAdmin`, `User1` และ Email (รหัสผ่านตามหัวข้อ 15) | ผ่านทั้งหมด; USER เรียก Admin API ถูกปฏิเสธ (403) |
+| `npm test` | ผ่าน 19 จาก 20 ชุด ชุดที่ไม่ผ่านคือ `tests/runtime-permission-approval.test.js` ซึ่งอ้างอิง path แบบ Windows (`docs\database-permissions.md`) จึงล้มบน Linux และไม่ส่งผลต่อระบบ |
+
+ยังไม่ได้รัน `npm run test:e2e` (Playwright) ในการทดสอบนี้
+
 ## 23. Migration Status
 
 ไฟล์ Migration อยู่ใน `NoveltailApp/migrations/`:
 
-| Migration | เนื้อหา | สถานะของ clean backup/ฐานที่ตรวจสอบ |
+| Migration | เนื้อหา | สถานะของ backup/ฐานที่ตรวจสอบ |
 |---|---|---|
 | 001 | Wallet, Paid Chapters, Notifications | Schema อยู่ใน Baseline |
 | 002 | Reversals, Moderation, Appeals | Schema อยู่ใน Baseline |
@@ -315,15 +348,17 @@ npx playwright install chromium
 | 006 | Report target snapshots | Applied to local `Noveltail` on 2026-11-12 after a full backup and restore test |
 | 007 | Announcement Home Carousel (pinning, order, and links) | Applied to local `Noveltail` on 2026-11-12 after a full backup and restore test |
 
-ไม่พบ Migration Ledger Table จึงไม่ได้สร้างหรือบันทึกสถานะปลอม; ยืนยันสถานะจาก schema โดยตรงแทน ก่อน Apply ได้สร้าง custom-format backup ไว้นอก Repository และ Restore ไปฐาน Disposable ซึ่งยืนยัน 28 ตาราง, ข้อมูลทุกตาราง, sequence values และ object counts ตรงกัน หลัง Apply 005–007 ที่ Local `Noveltail` จำนวนตารางเป็น 29 และจำนวนแถวของ 28 ตารางเดิมไม่เปลี่ยน มีบัญชี SUPER_ADMIN 1 รายการ, wallet 1 รายการ และ genres 13 รายการ `Noveltail_full.sql` ได้รับการสร้างใหม่เป็น clean backup หลัง migrations โดย Restore ทดสอบผ่าน มี 29 ตารางและไม่มีบัญชีหรือข้อมูลผู้ใช้ การเปลี่ยนแปลงนี้จำกัดเฉพาะฐาน Local `Noveltail` ที่ `localhost:5432` ไม่ใช่การอนุมัติ Production Deployment
+ไม่พบ Migration Ledger Table จึงไม่ได้สร้างหรือบันทึกสถานะปลอม; ยืนยันสถานะจาก schema โดยตรงแทน ก่อน Apply ได้สร้าง custom-format backup ไว้นอก Repository และ Restore ไปฐาน Disposable ซึ่งยืนยัน 28 ตาราง, ข้อมูลทุกตาราง, sequence values และ object counts ตรงกัน หลัง Apply 005–007 ที่ Local `Noveltail` จำนวนตารางเป็น 29 และจำนวนแถวของ 28 ตารางเดิมไม่เปลี่ยน การเปลี่ยนแปลงนี้จำกัดเฉพาะฐาน Local `Noveltail` ที่ `localhost:5432` ไม่ใช่การอนุมัติ Production Deployment
+
+`Noveltail_full.sql` ปัจจุบันเป็น backup หลัง migrations 001–007 มี 29 ตาราง และมีข้อมูลสาธิตตามหัวข้อ 15 (บัญชี `SuperAdmin`, `User1`, นิยาย `TestNovel` และ Wallet ที่เกี่ยวข้อง)
 
 ## 24. ข้อจำกัดที่ทราบ
 
-- Backup ที่สะอาดไม่มีบัญชีผู้ใช้ ต้องเรียก SQL initializer ก่อน Login
+- Backup มีบัญชีทดสอบที่ใช้รหัสผ่านง่าย (`12345678`) เหมาะกับการสาธิต Local เท่านั้น ก่อนนำไปใช้จริงต้องเปลี่ยนรหัสผ่านหรือสร้างฐานใหม่ที่ไม่มีบัญชี
 - Production Deployment ยังไม่พร้อมใช้งาน: การ Apply schema บน Local ไม่ได้จัดเตรียม Runtime Role/สิทธิ์แบบ least privilege, signed baseline, enforced deployment gate, HTTPS/proxy environment หรือ Production owner approval
 - Production ต้องแยก Migration Owner ออกจาก Runtime Role และห้ามใช้ PostgreSQL Superuser เป็น Runtime
 - In-memory rate limiting ใช้สำหรับ Local เท่านั้น; Multi-instance Production ต้องตั้งค่าและตรวจสิทธิ์ PostgreSQL shared store ตาม deployment gate
-- Notifications ไม่ใช่ Real-time Push
+- Notifications ไม่ใช่ Real-time Push (ดึงข้อมูลเมื่อเปิดหน้า)
 - เหรียญเป็นการจำลอง ไม่มี Payment Gateway
 - การตรวจ Responsive/Accessibility อัตโนมัติไม่ทดแทนการตรวจทุก Browser/อุปกรณ์ด้วยคน
 
@@ -331,8 +366,8 @@ npx playwright install chromium
 
 ## 25. ข้อควรระวังด้านความปลอดภัย
 
-- ห้าม Commit `.env`, รหัสผ่าน, JWT Secret, Database Credential หรือ bcrypt hash
-- อย่าใช้รหัสผ่านตั้งต้นที่แชร์หรือคาดเดาได้ เลือกรหัสผ่าน SUPER_ADMIN ที่ไม่ซ้ำและเก็บใน Password Manager
+- ห้าม Commit `.env`, JWT Secret หรือ Database Credential
+- บัญชีทดสอบในหัวข้อ 15 ใช้รหัสผ่านที่คาดเดาง่ายโดยตั้งใจเพื่อการสาธิต ห้ามใช้ซ้ำกับบัญชีจริง และเปลี่ยนก่อนใช้นอกเครื่อง Local
 - ห้าม Reset หรือล้างข้อมูลฐานจริง; ก่อนเปลี่ยน schema บนเป้าหมายอื่นต้องสำรองและทดสอบ Restore พร้อมใช้ reviewed deployment process
 - Migration 005–007 ถูก Apply เฉพาะฐาน Local `Noveltail` ตามการอนุญาตล่าสุด; ห้ามเปลี่ยน Role/Grant หรือถือว่า Production ผ่านการอนุมัติ
 - คง CSRF, Same-origin, TLS, Rate Limit และ Role Authorization ตาม Environment
