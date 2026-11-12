@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Admin Dashboard | Noveltail</title>
+    <link rel="stylesheet" href="/write.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <link rel="stylesheet" href="/admin.css">
+    <script src="/default-images.js" defer></script>
+    <script src="/csrf.js" defer></script>
+    <script src="/profile-nav.js" defer></script>
+    <script src="/admin.js" defer></script>
+    <script src="/admin-community.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<header class="topbar admin-topbar">
+    <div class="admin-brand">
+        <a href="/" class="logo">Noveltail<span>.</span></a>
+        <span class="admin-brand-divider" aria-hidden="true"></span>
+        <strong>Admin Dashboard</strong>
+    </div>
+    <div class="admin-topbar-actions nav-actions">
+        <nav class="admin-navigation" aria-label="Admin sections">
+            <a id="admin-reports-link" href="#reports-admin-panel">
+                Report Management
+            </a>
+            <a href="#announcements-admin-panel">Announcements</a>
+        </nav>
+        <a class="admin-home-link" href="/">Home</a>
+    </div>
+</header>
+
+<main class="admin-page">
+    <h1>Admin Tools</h1>
+    <p id="admin-status" role="status" aria-live="polite"></p>
+
+    <section class="admin-panel">
+        <h2>Review and Manage Novels</h2>
+        <form id="novel-search" class="admin-controls">
+            <label>Search novels or writers
+                <input id="novel-query" type="search" maxlength="100">
+            </label>
+            <label>Publication status
+                <select id="novel-status">
+                    <option value="">All</option>
+                    <option value="active">Active</option>
+                    <option value="suspended">Suspended</option>
+                </select>
+            </label>
+            <button type="submit">Search</button>
+        </form>
+        <div class="admin-columns">
+            <div id="novel-results" class="admin-list" aria-live="polite"></div>
+            <div id="novel-detail" class="admin-detail">
+                <p>Select a novel to view its details and moderation history.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="admin-panel">
+        <h2>Manage Accounts and Suspensions</h2>
+        <form id="account-search" class="admin-controls">
+            <label>Search username, display name, or email
+                <input id="account-query" type="search" maxlength="100">
+            </label>
+            <label>Role
+                <select id="account-role">
+                    <option value="">All roles</option>
+                    <option value="USER">USER</option>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="SUPER_ADMIN">SUPER_ADMIN</option>
+                </select>
+            </label>
+            <button type="submit">Search Users</button>
+        </form>
+        <div class="admin-columns">
+            <div id="account-results" class="admin-list" aria-live="polite"></div>
+            <div id="account-detail" class="admin-detail">
+                <p>Search accounts or select a role to browse users and view account details.</p>
+            </div>
+        </div>
+        <div id="account-pagination" class="admin-controls" hidden>
+            <button id="account-previous" type="button">Previous</button>
+            <span id="account-page-status" aria-live="polite"></span>
+            <button id="account-next" type="button">Next</button>
+        </div>
+    </section>
+
+    <section class="admin-panel">
+        <h2>Review Appeals</h2>
+        <div class="admin-controls">
+            <label>Status
+                <select id="appeal-status">
+                    <option value="">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="reviewing">Under review</option>
+                    <option value="accepted">Accepted</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </label>
+            <button id="appeal-refresh" type="button">Refresh</button>
+        </div>
+        <div class="admin-columns">
+            <div id="appeal-results" class="admin-list" aria-live="polite"></div>
+            <div id="appeal-detail" class="admin-detail">
+                <p>Select an appeal to view its details.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="admin-panel">
+        <h2>Refund a Chapter or Cancel a Coin Top-up</h2>
+        <p>Chapter purchases can be refunded only when the writer's balance can cover the original share without becoming negative.</p>
+        <form id="reversal-form" class="admin-controls">
+            <label>Original transaction ID
+                <input id="reversal-transaction-id" type="number" min="1" required>
+            </label>
+            <label>Internal reason (not shown to the user)
+                <input id="reversal-reason" type="text" maxlength="500">
+            </label>
+            <button type="submit" data-operation="refund">Refund Chapter</button>
+            <button type="submit" data-operation="cancel">Cancel Top-up</button>
+        </form>
+        <p id="reversal-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="admin-panel" id="reports-admin-panel">
+        <h2>Report Management</h2>
+        <form id="reports-filter-form" class="admin-controls">
+            <label>Search
+                <input id="reports-query" type="search" maxlength="100">
+            </label>
+            <label>Target type
+                <select id="reports-type">
+                    <option value="">All</option>
+                    <option value="novel">Novel</option>
+                    <option value="chapter">Chapter</option>
+                    <option value="comment">Comment</option>
+                    <option value="review">Legacy review</option>
+                </select>
+            </label>
+            <label>Status
+                <select id="reports-state">
+                    <option value="">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="reviewing">Under review</option>
+                    <option value="resolved">Resolved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </label>
+            <button type="submit">Search Reports</button>
+        </form>
+        <div class="admin-columns">
+            <div id="reports-results" class="admin-list" aria-live="polite"></div>
+            <div id="reports-detail" class="admin-detail">
+                <p>Select a report to view its details and action history.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="admin-panel" id="announcements-admin-panel">
+        <h2>Website Announcements</h2>
+        <p>Save a draft first. Publishing makes it visible to everyone on the site and does not send private notifications.</p>
+        <form id="announcements-filter-form" class="admin-controls">
+            <label>Search announcements
+                <input id="announcements-query" type="search" maxlength="100">
+            </label>
+            <label>Status
+                <select id="announcements-state">
+                    <option value="">All</option>
+                    <option value="draft">Draft / Scheduled</option>
+                    <option value="published">Published</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </label>
+            <button type="submit">Search</button>
+        </form>
+        <div class="admin-columns">
+            <div id="announcements-results" class="admin-list" aria-live="polite"></div>
+            <div id="announcements-detail" class="admin-detail">
+                <p>Create an announcement or select one to edit and view its history.</p>
+            </div>
+        </div>
+        <form id="announcement-editor" class="community-form admin-detail">
+            <h3 id="announcement-editor-heading">Create Announcement Draft</h3>
+            <input id="announcement-id" type="hidden">
+            <label>Title
+                <input id="announcement-title-input" type="text" maxlength="200" required>
+            </label>
+            <label>Content
+                <textarea id="announcement-content-input" maxlength="10000" required></textarea>
+            </label>
+            <label>Link URL (HTTP/HTTPS or an internal path)
+                <input id="announcement-link-url" type="text" maxlength="2048"
+                       autocomplete="off">
+            </label>
+            <label>Link text
+                <input id="announcement-link-label" type="text" maxlength="100">
+            </label>
+            <label class="announcement-pin-option">
+                <input id="announcement-is-pinned" type="checkbox">
+                Pin to Home
+            </label>
+            <label>Home display order (lower numbers appear first)
+                <input id="announcement-pin-order" type="number" min="0"
+                       max="9999" step="1" value="0">
+            </label>
+            <button id="announcement-preview-button" type="button">
+                Preview Announcement
+            </button>
+            <div id="announcement-preview" class="announcement-preview"
+                 aria-label="Announcement preview" hidden></div>
+            <label>Expiration date (optional)
+                <input id="announcement-expires" type="datetime-local">
+            </label>
+            <button id="announcement-save" type="submit">Save Draft</button>
+            <button id="announcement-clear" type="button">New Draft</button>
+        </form>
+        <div id="announcement-actions" class="admin-detail" hidden>
+            <label>Schedule publication (leave blank to publish immediately)
+                <input id="announcement-schedule" type="datetime-local">
+            </label>
+            <label>Cancellation reason (optional)
+                <input id="announcement-cancel-reason" type="text" maxlength="500">
+            </label>
+            <button id="announcement-publish" type="button">Publish to Website / Schedule</button>
+            <button id="announcement-unpublish" type="button" hidden>Unpublish</button>
+            <button id="announcement-pin-toggle" type="button" hidden>Pin to Home</button>
+            <button id="announcement-cancel" type="button">Cancel Announcement</button>
+            <button id="announcement-delete" type="button" hidden>Delete Announcement</button>
+        </div>
+    </section>
+
+    <section class="admin-panel" id="private-notifications-admin-panel">
+        <h2>Private Notifications</h2>
+        <p>Only the selected accounts receive these messages in Notifications. They are never published on the website.</p>
+        <form id="private-notification-form" class="community-form">
+            <label>Title
+                <input id="private-notification-title" type="text"
+                       maxlength="200" required>
+            </label>
+            <label>Message
+                <textarea id="private-notification-message"
+                          maxlength="10000" required></textarea>
+            </label>
+            <label>Recipients
+                <select id="private-notification-audience">
+                    <option value="individual">Selected accounts</option>
+                    <option value="group">Role groups</option>
+                </select>
+            </label>
+            <div id="private-notification-individual-controls">
+                <label>Account IDs (comma-separated)
+                    <input id="private-notification-user-ids" type="text"
+                           placeholder="For example: 12, 34">
+                </label>
+                <label>Search recipient accounts
+                    <input id="private-notification-user-search" type="search"
+                           minlength="2" placeholder="Username or display name">
+                </label>
+                <button id="private-notification-user-search-button"
+                        type="button">Search Users</button>
+                <div id="private-notification-user-search-results"
+                     class="community-role-list" aria-live="polite"></div>
+            </div>
+            <div id="private-notification-group-controls"
+                 class="community-role-list" hidden>
+                <label><input type="checkbox" name="private-notification-role"
+                              value="USER"> USER</label>
+                <label><input type="checkbox" name="private-notification-role"
+                              value="ADMIN"> ADMIN</label>
+                <label><input type="checkbox" name="private-notification-role"
+                              value="SUPER_ADMIN"> SUPER_ADMIN</label>
+            </div>
+            <button type="submit">Send Private Notification</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

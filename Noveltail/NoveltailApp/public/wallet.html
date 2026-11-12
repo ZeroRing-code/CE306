@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Wallet | Noveltail</title>
+    <link rel="stylesheet" href="/write.css">
+    <link rel="stylesheet" href="/wallet.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/profile-nav.js" defer></script>
+    <script src="/wallet.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <strong>Wallet</strong>
+    <a href="/">Home</a>
+</header>
+
+<main class="wallet-page">
+    <section class="wallet-card">
+        <div>
+            <h1>Wallet</h1>
+            <p class="wallet-note">Coins are simulated project credits. No real payment is processed.</p>
+        </div>
+        <div><span id="wallet-balance" class="wallet-balance">…</span><span> coins</span></div>
+    </section>
+
+    <section class="wallet-section">
+        <h2>Choose a Coin Package</h2>
+        <p class="wallet-muted">Coins are credited immediately when a package is selected. Packages can be purchased more than once.</p>
+        <div id="wallet-packages" class="wallet-packages"></div>
+        <p id="wallet-message" class="wallet-message" role="status"></p>
+    </section>
+
+    <section id="wallet-admin" class="wallet-section wallet-admin" hidden>
+        <h2>Admin Tool: Adjust Coin Balance</h2>
+        <form id="wallet-admin-form">
+            <label for="admin-user-id">User ID</label>
+            <input id="admin-user-id" type="number" min="1" required>
+            <label for="admin-operation">Operation</label>
+            <select id="admin-operation">
+                <option value="credit">Credit coins</option>
+                <option value="debit">Debit coins</option>
+            </select>
+            <label for="admin-amount">Coin amount</label>
+            <input id="admin-amount" type="number" min="1" max="1000000" required>
+            <label for="admin-reason">Reason (optional)</label>
+            <textarea id="admin-reason" maxlength="500"></textarea>
+            <button type="submit">Save Balance Adjustment</button>
+        </form>
+        <p id="admin-message" class="wallet-message" role="status"></p>
+    </section>
+
+    <section class="wallet-section">
+        <h2>Transaction History</h2>
+        <ul id="wallet-transactions" class="wallet-transactions"></ul>
+        <p id="wallet-empty" class="wallet-muted" hidden>No transactions yet.</p>
+        <button id="wallet-more" type="button" hidden>Load More</button>
+    </section>
+</main>
+</body>
+</html>

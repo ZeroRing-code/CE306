@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+
+    <title>User Profile | Noveltail</title>
+
+    <link rel="stylesheet" href="/profile-nav.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/profile.js" defer></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #f7f7fb;
+            color: #25243a;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e9e8f0;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #7656d8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #5f5c6a;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #7656d8;
+        }
+
+        .container {
+            max-width: 1050px;
+            width: 90%;
+            margin: 45px auto;
+        }
+
+        .profile-card {
+            background: white;
+            border: 1px solid #eceaf1;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .profile-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #eeeaf8;
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            min-width: 0;
+        }
+
+        .profile-label {
+            color: #7656d8;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        .profile-name {
+            font-size: 27px;
+            overflow-wrap: anywhere;
+            margin-bottom: 5px;
+        }
+
+        .profile-username {
+            color: #5f5c6a;
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .profile-bio {
+            color: #666579;
+            font-size: 14px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            margin-bottom: 14px;
+        }
+
+        .profile-meta {
+            color: #5f5c6a;
+            font-size: 12px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 22px;
+            margin-top: 17px;
+        }
+
+        .edit-profile-link {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 16px;
+            border: 1px solid #7656d8;
+            border-radius: 8px;
+            color: #fff;
+            background: #7656d8;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .edit-profile-link:hover {
+            background: #6244c2;
+        }
+
+        .edit-profile-link[hidden] {
+            display: none;
+        }
+
+        .follow-profile-button {
+            display: inline-block;
+            margin: 18px 0 0 8px;
+            padding: 10px 16px;
+            border: 1px solid #7656d8;
+            border-radius: 8px;
+            color: #7656d8;
+            background: white;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .follow-profile-button[hidden] {
+            display: none;
+        }
+
+        .profile-stat strong {
+            font-size: 19px;
+            color: #7656d8;
+        }
+
+        .profile-stat span {
+            display: block;
+            color: #5f5c6a;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .section-heading {
+            margin-bottom: 20px;
+        }
+
+        .section-heading p {
+            color: #7656d8;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 7px;
+        }
+
+        .section-heading h2 {
+            font-size: 23px;
+        }
+
+        .novel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 20px;
+        }
+
+        .novel-card {
+            background: white;
+            border: 1px solid #eceaf1;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .novel-card:hover {
+            transform: translateY(-3px);
+            border-color: #c8b9f5;
+            box-shadow: 0 8px 22px rgba(50, 35, 90, 0.06);
+        }
+
+        .novel-cover {
+            display: block;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: #eeeaf8;
+            object-fit: cover;
+        }
+
+        .novel-card-info {
+            padding: 13px;
+        }
+
+        .novel-card-info h3 {
+            font-size: 15px;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+            margin-bottom: 7px;
+        }
+
+        .novel-card-info p {
+            color: #5f5c6a;
+            font-size: 12px;
+        }
+
+        .novel-description {
+            color: #666579 !important;
+            line-height: 1.6;
+            margin-top: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .profile-message,
+        .empty-state {
+            background: white;
+            border: 1px solid #eceaf1;
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            color: #5f5c6a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #5f5c6a;
+            font-size: 12px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .container {
+                margin-top: 25px;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 22px;
+            }
+
+            .profile-avatar {
+                width: 110px;
+                height: 110px;
+            }
+
+            .profile-stats {
+                justify-content: center;
+            }
+
+            .profile-name {
+                font-size: 23px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+
+    <nav class="nav-links">
+        <a href="/">Discover</a>
+        <a href="/bookmarks.html">Bookmarks</a>
+        <a href="/history.html">Reading History</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <div id="profile-message" class="profile-message">
+        Loading profile...
+    </div>
+
+    <section id="profile-content" hidden>
+
+        <div class="profile-card">
+
+            <img
+                id="profile-avatar"
+                class="profile-avatar"
+                data-default-image="avatar"
+                alt="Profile avatar"
+            >
+
+            <div class="profile-info">
+
+                <p class="profile-label">AUTHOR PROFILE</p>
+
+                <h1 id="profile-name" class="profile-name"></h1>
+
+                <p id="profile-username" class="profile-username"></p>
+
+                <p id="profile-bio" class="profile-bio"></p>
+
+                <p id="profile-joined" class="profile-meta"></p>
+
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <strong id="profile-novel-count">0</strong>
+                        <span>Novels</span>
+                    </div>
+                </div>
+
+                <a
+                    id="edit-profile-link"
+                    class="edit-profile-link"
+                    href="/edit-profile.html"
+                    hidden
+                >Edit Profile</a>
+                <button
+                    id="follow-profile-button"
+                    class="follow-profile-button"
+                    type="button"
+                    hidden
+                >Follow</button>
+                <p id="follow-profile-message" role="status"></p>
+
+            </div>
+
+        </div>
+
+        <section>
+
+            <div class="section-heading">
+                <p>AUTHOR WORKS</p>
+                <h2>Published Novels</h2>
+            </div>
+
+            <div id="profile-novels" class="novel-grid"></div>
+
+            <div id="profile-empty" class="empty-state" hidden>
+                This writer has not published any novels yet.
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+<script src="/profile-nav.js" defer></script>
+<footer>Noveltail © 2026</footer>
+
+</body>
+</html>

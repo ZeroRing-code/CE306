@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Account History & Appeals | Noveltail</title>
+    <link rel="stylesheet" href="/appeals.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/appeals.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<header class="appeal-header">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <a href="/auth.html">Sign in</a>
+</header>
+<main class="appeal-page">
+    <h1>Account Suspension History & Appeals</h1>
+    <p id="appeal-status" role="status" aria-live="polite"></p>
+    <section>
+        <h2>Suspension History</h2>
+        <div id="suspension-list"></div>
+    </section>
+    <section>
+        <h2>My Appeals</h2>
+        <div id="appeal-list"></div>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Novel Detail | Noveltail</title>
+
+    <link rel="stylesheet" href="/reading.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/report-dialog.js" defer></script>
+    <script src="/novel.js" defer></script>
+    <script src="/novel-bookmark.js" defer></script>
+    <script src="/reviews-client.js" defer></script>
+    <script src="/profile-nav.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+
+<body>
+
+<header class="reading-header">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+
+    <nav style="display: flex; align-items: center; gap: 20px;">
+        <a href="/">Home</a>
+        <a href="/my-novels.html">My novels</a>
+        <a href="/bookmarks.html">♡ Bookmarks</a>
+    </nav>
+</header>
+
+<main class="reading-container">
+
+    <p id="page-message">Loading novel...</p>
+
+    <section id="novel-detail" hidden>
+
+        <div class="novel-detail-layout">
+
+            <div class="detail-cover">
+                <img
+    id="novel-cover"
+    data-default-image="cover"
+    alt="Novel cover"
+>
+            </div>
+
+            <div class="detail-info">
+                <p class="eyebrow">NOVEL DETAIL</p>
+
+                <h1 id="novel-title"></h1>
+
+                <p id="novel-author"></p>
+                <div class="novel-follow-actions">
+                    <button id="novel-follow-button" type="button" hidden>
+                        Checking follow status...
+                    </button>
+                    <p id="novel-follow-message" role="status"></p>
+                </div>
+
+                <div id="novel-genres" class="genre-list"></div>
+
+                <p id="novel-description"></p>
+
+                <div id="novel-stats" class="stats"></div>
+                <p>
+                    <button
+                        id="report-novel-button"
+                        type="button"
+                        data-report-type="novel"
+                        data-report-id=""
+                        hidden
+                    >Report Novel</button>
+                </p>
+            </div>
+
+        </div>
+
+        <section class="chapter-section">
+            <h2>Chapters</h2>
+            <p id="chapter-count"></p>
+
+            <div id="chapter-list">
+                Loading chapters...
+            </div>
+        </section>
+
+    </section>
+
+</main>
+
+<footer>Noveltail © 2026</footer>
+
+</body>
+</html>

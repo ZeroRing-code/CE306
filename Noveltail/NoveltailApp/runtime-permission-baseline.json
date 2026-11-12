@@ -1,0 +1,4299 @@
+{
+  "captured_at": "2026-11-11T13:33:58.126Z",
+  "scope": "Noveltail permission catalogs only",
+  "sections": {
+    "roles": [
+      {
+        "rolname": "postgres",
+        "rolsuper": true,
+        "rolinherit": true,
+        "rolcreaterole": true,
+        "rolcreatedb": true,
+        "rolcanlogin": true,
+        "rolreplication": true,
+        "rolbypassrls": true,
+        "rolconnlimit": -1,
+        "rolvaliduntil": null
+      }
+    ],
+    "memberships": [
+      {
+        "member": "pg_monitor",
+        "granted_role": "pg_read_all_settings",
+        "grantor": "postgres",
+        "admin_option": false,
+        "inherit_option": true,
+        "set_option": true
+      },
+      {
+        "member": "pg_monitor",
+        "granted_role": "pg_read_all_stats",
+        "grantor": "postgres",
+        "admin_option": false,
+        "inherit_option": true,
+        "set_option": true
+      },
+      {
+        "member": "pg_monitor",
+        "granted_role": "pg_stat_scan_tables",
+        "grantor": "postgres",
+        "admin_option": false,
+        "inherit_option": true,
+        "set_option": true
+      }
+    ],
+    "database": [
+      {
+        "datname": "Noveltail",
+        "owner": "postgres",
+        "acl": null,
+        "current_connect": true,
+        "current_create": true,
+        "current_temporary": true
+      }
+    ],
+    "schema": [
+      {
+        "nspname": "public",
+        "owner": "pg_database_owner",
+        "acl": "{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner}",
+        "current_usage": true,
+        "current_create": true
+      }
+    ],
+    "relations": [
+      {
+        "relation": "account_suspensions_suspension_id_seq",
+        "relname": "account_suspensions_suspension_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "admin_action_logs_log_id_seq",
+        "relname": "admin_action_logs_log_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "announcements_announcement_id_seq",
+        "relname": "announcements_announcement_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "appeal_assignments_assignment_id_seq",
+        "relname": "appeal_assignments_assignment_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "appeals_appeal_id_seq",
+        "relname": "appeals_appeal_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "bookmarks_bookmark_id_seq",
+        "relname": "bookmarks_bookmark_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "chapter_revisions_revision_id_seq",
+        "relname": "chapter_revisions_revision_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "chapters_chapter_id_seq",
+        "relname": "chapters_chapter_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "comment_mentions_mention_id_seq",
+        "relname": "comment_mentions_mention_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "comments_comment_id_seq",
+        "relname": "comments_comment_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "genres_genre_id_seq",
+        "relname": "genres_genre_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "notifications_notification_id_seq",
+        "relname": "notifications_notification_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novel_likes_like_id_seq",
+        "relname": "novel_likes_like_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novel_revisions_revision_id_seq",
+        "relname": "novel_revisions_revision_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novels_novel_id_seq",
+        "relname": "novels_novel_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "reading_history_history_id_seq",
+        "relname": "reading_history_history_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "reports_report_id_seq",
+        "relname": "reports_report_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "reviews_review_id_seq",
+        "relname": "reviews_review_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "users_user_id_seq",
+        "relname": "users_user_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "wallet_transactions_transaction_id_seq",
+        "relname": "wallet_transactions_transaction_id_seq",
+        "relkind": "S",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "account_suspensions",
+        "relname": "account_suspensions",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "admin_action_logs",
+        "relname": "admin_action_logs",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "announcement_recipients",
+        "relname": "announcement_recipients",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "announcements",
+        "relname": "announcements",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "appeal_assignments",
+        "relname": "appeal_assignments",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "appeals",
+        "relname": "appeals",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "bookmarks",
+        "relname": "bookmarks",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "chapter_revisions",
+        "relname": "chapter_revisions",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relname": "chapter_unlocks",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "chapters",
+        "relname": "chapters",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "comment_mentions",
+        "relname": "comment_mentions",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "comment_reactions",
+        "relname": "comment_reactions",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "comments",
+        "relname": "comments",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "follows",
+        "relname": "follows",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "genres",
+        "relname": "genres",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "notifications",
+        "relname": "notifications",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novel_follows",
+        "relname": "novel_follows",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novel_genres",
+        "relname": "novel_genres",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novel_likes",
+        "relname": "novel_likes",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novel_revisions",
+        "relname": "novel_revisions",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "novels",
+        "relname": "novels",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "reading_history",
+        "relname": "reading_history",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "reports",
+        "relname": "reports",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "review_reactions",
+        "relname": "review_reactions",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "reviews",
+        "relname": "reviews",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "users",
+        "relname": "users",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "wallet_transactions",
+        "relname": "wallet_transactions",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      },
+      {
+        "relation": "wallets",
+        "relname": "wallets",
+        "relkind": "r",
+        "owner": "postgres",
+        "acl": null,
+        "rls_enabled": false,
+        "rls_forced": false
+      }
+    ],
+    "relation_acl": [
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "account_suspensions_suspension_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "admin_action_logs_log_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcement_recipients",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "announcements_announcement_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeal_assignments_assignment_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "appeals_appeal_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "bookmarks_bookmark_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_revisions_revision_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapter_unlocks",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "chapters_chapter_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_mentions_mention_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comment_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "comments_comment_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "genres_genre_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "notifications_notification_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_follows",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_genres",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_likes_like_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novel_revisions_revision_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "novels_novel_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reading_history_history_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reports_report_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "review_reactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "reviews_review_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "users_user_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallet_transactions_transaction_id_seq",
+        "relkind": "S",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "DELETE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "INSERT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "MAINTAIN",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "REFERENCES",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "SELECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRIGGER",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TRUNCATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "relation": "wallets",
+        "relkind": "r",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "UPDATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      }
+    ],
+    "database_acl": [
+      {
+        "grantor": "postgres",
+        "grantee": "PUBLIC",
+        "privilege_type": "CONNECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "grantor": "postgres",
+        "grantee": "PUBLIC",
+        "privilege_type": "TEMPORARY",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "CONNECT",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "CREATE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "TEMPORARY",
+        "is_grantable": false,
+        "from_builtin_default": true
+      }
+    ],
+    "schema_acl": [
+      {
+        "grantor": "pg_database_owner",
+        "grantee": "PUBLIC",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": false
+      },
+      {
+        "grantor": "pg_database_owner",
+        "grantee": "pg_database_owner",
+        "privilege_type": "CREATE",
+        "is_grantable": false,
+        "from_builtin_default": false
+      },
+      {
+        "grantor": "pg_database_owner",
+        "grantee": "pg_database_owner",
+        "privilege_type": "USAGE",
+        "is_grantable": false,
+        "from_builtin_default": false
+      }
+    ],
+    "other_user_schemas": [],
+    "column_acl": [],
+    "routines": [
+      {
+        "signature": "create_user_wallet()",
+        "prokind": "f",
+        "owner": "postgres",
+        "security_definer": false,
+        "acl": null,
+        "current_execute": true
+      }
+    ],
+    "routine_acl": [
+      {
+        "signature": "create_user_wallet()",
+        "grantor": "postgres",
+        "grantee": "PUBLIC",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      },
+      {
+        "signature": "create_user_wallet()",
+        "grantor": "postgres",
+        "grantee": "postgres",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false,
+        "from_builtin_default": true
+      }
+    ],
+    "routine_trigger_bindings": [
+      {
+        "signature": "create_user_wallet()",
+        "relation": "users",
+        "tgname": "users_create_wallet",
+        "tgenabled": "O",
+        "tgisinternal": false,
+        "definition": "CREATE TRIGGER users_create_wallet AFTER INSERT ON users FOR EACH ROW EXECUTE FUNCTION create_user_wallet()"
+      }
+    ],
+    "default_acl": [],
+    "effective_tables": [
+      {
+        "relname": "account_suspensions",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "admin_action_logs",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "announcement_recipients",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "announcements",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "appeal_assignments",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "appeals",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "bookmarks",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "chapter_revisions",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "chapter_unlocks",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "chapters",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "comment_mentions",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "comment_reactions",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "comments",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "follows",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "genres",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "notifications",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novel_follows",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novel_genres",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novel_likes",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novel_revisions",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novels",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "reading_history",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "reports",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "review_reactions",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "reviews",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "users",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "wallets",
+        "relkind": "r",
+        "current_privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "TRUNCATE",
+          "REFERENCES",
+          "TRIGGER"
+        ],
+        "runtime_privileges": null
+      }
+    ],
+    "effective_sequences": [
+      {
+        "relname": "account_suspensions_suspension_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "admin_action_logs_log_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "announcements_announcement_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "appeal_assignments_assignment_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "appeals_appeal_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "bookmarks_bookmark_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "chapter_revisions_revision_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "chapters_chapter_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "comment_mentions_mention_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "comments_comment_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "genres_genre_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "notifications_notification_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novel_likes_like_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novel_revisions_revision_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "novels_novel_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "reading_history_history_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "reports_report_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "reviews_review_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "users_user_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      },
+      {
+        "relname": "wallet_transactions_transaction_id_seq",
+        "current_privileges": [
+          "USAGE",
+          "SELECT",
+          "UPDATE"
+        ],
+        "runtime_privileges": null
+      }
+    ],
+    "sequence_dependencies": [
+      {
+        "sequence_name": "account_suspensions_suspension_id_seq",
+        "table_name": "account_suspensions",
+        "column_name": "suspension_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "admin_action_logs_log_id_seq",
+        "table_name": "admin_action_logs",
+        "column_name": "log_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "announcements_announcement_id_seq",
+        "table_name": "announcements",
+        "column_name": "announcement_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "appeal_assignments_assignment_id_seq",
+        "table_name": "appeal_assignments",
+        "column_name": "assignment_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "appeals_appeal_id_seq",
+        "table_name": "appeals",
+        "column_name": "appeal_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "bookmarks_bookmark_id_seq",
+        "table_name": "bookmarks",
+        "column_name": "bookmark_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "chapter_revisions_revision_id_seq",
+        "table_name": "chapter_revisions",
+        "column_name": "revision_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "chapters_chapter_id_seq",
+        "table_name": "chapters",
+        "column_name": "chapter_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "comment_mentions_mention_id_seq",
+        "table_name": "comment_mentions",
+        "column_name": "mention_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "comments_comment_id_seq",
+        "table_name": "comments",
+        "column_name": "comment_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "genres_genre_id_seq",
+        "table_name": "genres",
+        "column_name": "genre_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "notifications_notification_id_seq",
+        "table_name": "notifications",
+        "column_name": "notification_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "novel_likes_like_id_seq",
+        "table_name": "novel_likes",
+        "column_name": "like_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "novel_revisions_revision_id_seq",
+        "table_name": "novel_revisions",
+        "column_name": "revision_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "novels_novel_id_seq",
+        "table_name": "novels",
+        "column_name": "novel_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "reading_history_history_id_seq",
+        "table_name": "reading_history",
+        "column_name": "history_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "reports_report_id_seq",
+        "table_name": "reports",
+        "column_name": "report_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "reviews_review_id_seq",
+        "table_name": "reviews",
+        "column_name": "review_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "users_user_id_seq",
+        "table_name": "users",
+        "column_name": "user_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      },
+      {
+        "sequence_name": "wallet_transactions_transaction_id_seq",
+        "table_name": "wallet_transactions",
+        "column_name": "transaction_id",
+        "deptype": "i",
+        "attidentity": "d",
+        "default_expression": null
+      }
+    ],
+    "inspected_columns": [
+      {
+        "relname": "comment_reactions",
+        "attnum": 1,
+        "attname": "user_id",
+        "type": "bigint",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "comment_reactions",
+        "attnum": 2,
+        "attname": "comment_id",
+        "type": "bigint",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "comment_reactions",
+        "attnum": 3,
+        "attname": "reaction_type",
+        "type": "character varying(10)",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "comment_reactions",
+        "attnum": 4,
+        "attname": "created_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": "CURRENT_TIMESTAMP",
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "comment_reactions",
+        "attnum": 5,
+        "attname": "updated_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": "CURRENT_TIMESTAMP",
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "review_reactions",
+        "attnum": 1,
+        "attname": "user_id",
+        "type": "bigint",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "review_reactions",
+        "attnum": 2,
+        "attname": "review_id",
+        "type": "bigint",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "review_reactions",
+        "attnum": 3,
+        "attname": "reaction_type",
+        "type": "character varying(10)",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "review_reactions",
+        "attnum": 4,
+        "attname": "created_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": "CURRENT_TIMESTAMP",
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "review_reactions",
+        "attnum": 5,
+        "attname": "updated_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": "CURRENT_TIMESTAMP",
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 1,
+        "attname": "transaction_id",
+        "type": "bigint",
+        "attnotnull": true,
+        "attidentity": "d",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 2,
+        "attname": "user_id",
+        "type": "bigint",
+        "attnotnull": false,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 3,
+        "attname": "type",
+        "type": "character varying(32)",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 4,
+        "attname": "amount",
+        "type": "bigint",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 5,
+        "attname": "status",
+        "type": "character varying(16)",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 6,
+        "attname": "idempotency_key",
+        "type": "uuid",
+        "attnotnull": false,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 7,
+        "attname": "reference_id",
+        "type": "bigint",
+        "attnotnull": false,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 8,
+        "attname": "reference_key",
+        "type": "uuid",
+        "attnotnull": false,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 9,
+        "attname": "metadata",
+        "type": "jsonb",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": "'{}'::jsonb",
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 10,
+        "attname": "created_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "attidentity": "",
+        "default_expression": "CURRENT_TIMESTAMP",
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      },
+      {
+        "relname": "wallet_transactions",
+        "attnum": 11,
+        "attname": "reversal_of_transaction_id",
+        "type": "bigint",
+        "attnotnull": false,
+        "attidentity": "",
+        "default_expression": null,
+        "acl": null,
+        "current_update": true,
+        "runtime_update": null
+      }
+    ],
+    "constraints": [
+      {
+        "relname": "chapter_unlocks",
+        "conname": "chapter_unlocks_transaction_id_fkey",
+        "contype": "f",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "FOREIGN KEY (transaction_id) REFERENCES wallet_transactions(transaction_id)"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_comment_fkey",
+        "contype": "f",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "FOREIGN KEY (comment_id) REFERENCES comments(comment_id) ON DELETE CASCADE"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_comment_id_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL comment_id"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_created_at_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL created_at"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_pkey",
+        "contype": "p",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "PRIMARY KEY (user_id, comment_id)"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_reaction_type_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL reaction_type"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_type_check",
+        "contype": "c",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "CHECK (reaction_type::text = ANY (ARRAY['like'::character varying, 'dislike'::character varying]::text[]))"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_updated_at_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL updated_at"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_user_fkey",
+        "contype": "f",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE"
+      },
+      {
+        "relname": "comment_reactions",
+        "conname": "comment_reactions_user_id_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL user_id"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_created_at_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL created_at"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_pkey",
+        "contype": "p",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "PRIMARY KEY (user_id, review_id)"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_reaction_type_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL reaction_type"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_review_fkey",
+        "contype": "f",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "FOREIGN KEY (review_id) REFERENCES reviews(review_id) ON DELETE CASCADE"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_review_id_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL review_id"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_type_check",
+        "contype": "c",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "CHECK (reaction_type::text = ANY (ARRAY['like'::character varying, 'dislike'::character varying]::text[]))"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_updated_at_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL updated_at"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_user_fkey",
+        "contype": "f",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE"
+      },
+      {
+        "relname": "review_reactions",
+        "conname": "review_reactions_user_id_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL user_id"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_amount_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL amount"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_created_at_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL created_at"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_metadata_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL metadata"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_pkey",
+        "contype": "p",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "PRIMARY KEY (transaction_id)"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_reversal_of_transaction_id_fkey",
+        "contype": "f",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "FOREIGN KEY (reversal_of_transaction_id) REFERENCES wallet_transactions(transaction_id)"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_status_check",
+        "contype": "c",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "CHECK (status::text = ANY (ARRAY['success'::character varying, 'failed'::character varying, 'refunded'::character varying, 'cancelled'::character varying]::text[]))"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_status_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL status"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_transaction_id_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL transaction_id"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_type_check",
+        "contype": "c",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "CHECK (type::text = ANY (ARRAY['top_up'::character varying, 'purchase'::character varying, 'refund'::character varying, 'cancel'::character varying, 'admin_credit'::character varying, 'admin_debit'::character varying, 'creator_earning'::character varying, 'platform_fee'::character varying, 'failed'::character varying]::text[]))"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_type_not_null",
+        "contype": "n",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "NOT NULL type"
+      },
+      {
+        "relname": "wallet_transactions",
+        "conname": "wallet_transactions_user_id_fkey",
+        "contype": "f",
+        "condeferrable": false,
+        "condeferred": false,
+        "convalidated": true,
+        "definition": "FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL"
+      }
+    ],
+    "indexes": [
+      {
+        "relname": "comment_reactions",
+        "index_name": "comment_reactions_pkey",
+        "indisunique": true,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": false,
+        "definition": "CREATE UNIQUE INDEX comment_reactions_pkey ON public.comment_reactions USING btree (user_id, comment_id)"
+      },
+      {
+        "relname": "comment_reactions",
+        "index_name": "idx_comment_reactions_count",
+        "indisunique": false,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": false,
+        "definition": "CREATE INDEX idx_comment_reactions_count ON public.comment_reactions USING btree (comment_id, reaction_type)"
+      },
+      {
+        "relname": "review_reactions",
+        "index_name": "idx_review_reactions_count",
+        "indisunique": false,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": false,
+        "definition": "CREATE INDEX idx_review_reactions_count ON public.review_reactions USING btree (review_id, reaction_type)"
+      },
+      {
+        "relname": "review_reactions",
+        "index_name": "review_reactions_pkey",
+        "indisunique": true,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": false,
+        "definition": "CREATE UNIQUE INDEX review_reactions_pkey ON public.review_reactions USING btree (user_id, review_id)"
+      },
+      {
+        "relname": "wallet_transactions",
+        "index_name": "wallet_transactions_one_reversal",
+        "indisunique": true,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": true,
+        "definition": "CREATE UNIQUE INDEX wallet_transactions_one_reversal ON public.wallet_transactions USING btree (reversal_of_transaction_id) WHERE (reversal_of_transaction_id IS NOT NULL)"
+      },
+      {
+        "relname": "wallet_transactions",
+        "index_name": "wallet_transactions_pkey",
+        "indisunique": true,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": false,
+        "definition": "CREATE UNIQUE INDEX wallet_transactions_pkey ON public.wallet_transactions USING btree (transaction_id)"
+      },
+      {
+        "relname": "wallet_transactions",
+        "index_name": "wallet_transactions_reference",
+        "indisunique": false,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": true,
+        "definition": "CREATE INDEX wallet_transactions_reference ON public.wallet_transactions USING btree (reference_key) WHERE (reference_key IS NOT NULL)"
+      },
+      {
+        "relname": "wallet_transactions",
+        "index_name": "wallet_transactions_user_created",
+        "indisunique": false,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": false,
+        "definition": "CREATE INDEX wallet_transactions_user_created ON public.wallet_transactions USING btree (user_id, created_at DESC, transaction_id DESC)"
+      },
+      {
+        "relname": "wallet_transactions",
+        "index_name": "wallet_transactions_user_idempotency",
+        "indisunique": true,
+        "indisvalid": true,
+        "indisready": true,
+        "indimmediate": true,
+        "partial": true,
+        "definition": "CREATE UNIQUE INDEX wallet_transactions_user_idempotency ON public.wallet_transactions USING btree (user_id, idempotency_key) WHERE ((idempotency_key IS NOT NULL) AND (user_id IS NOT NULL))"
+      }
+    ],
+    "triggers": [
+      {
+        "relname": "comment_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52817",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_ins\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52817\" AFTER INSERT ON comment_reactions FROM users NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()"
+      },
+      {
+        "relname": "comment_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52818",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52818\" AFTER UPDATE ON comment_reactions FROM users NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()"
+      },
+      {
+        "relname": "comment_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52822",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_ins\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52822\" AFTER INSERT ON comment_reactions FROM comments NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()"
+      },
+      {
+        "relname": "comment_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52823",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52823\" AFTER UPDATE ON comment_reactions FROM comments NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()"
+      },
+      {
+        "relname": "review_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52840",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_ins\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52840\" AFTER INSERT ON review_reactions FROM users NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()"
+      },
+      {
+        "relname": "review_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52841",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52841\" AFTER UPDATE ON review_reactions FROM users NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()"
+      },
+      {
+        "relname": "review_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52845",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_ins\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52845\" AFTER INSERT ON review_reactions FROM reviews NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()"
+      },
+      {
+        "relname": "review_reactions",
+        "tgname": "RI_ConstraintTrigger_c_52846",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52846\" AFTER UPDATE ON review_reactions FROM reviews NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_a_52914",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_noaction_del\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_52914\" AFTER DELETE ON wallet_transactions FROM chapter_unlocks NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_a_52915",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_noaction_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_52915\" AFTER UPDATE ON wallet_transactions FROM chapter_unlocks NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_a_53225",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_noaction_del\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_53225\" AFTER DELETE ON wallet_transactions FROM wallet_transactions NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_a_53226",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_noaction_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_53226\" AFTER UPDATE ON wallet_transactions FROM wallet_transactions NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_c_52888",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_ins\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52888\" AFTER INSERT ON wallet_transactions FROM users NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_c_52889",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_52889\" AFTER UPDATE ON wallet_transactions FROM users NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_c_53227",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_ins\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_53227\" AFTER INSERT ON wallet_transactions FROM wallet_transactions NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()"
+      },
+      {
+        "relname": "wallet_transactions",
+        "tgname": "RI_ConstraintTrigger_c_53228",
+        "tgisinternal": true,
+        "tgenabled": "O",
+        "function_name": "\"RI_FKey_check_upd\"()",
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_53228\" AFTER UPDATE ON wallet_transactions FROM wallet_transactions NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()"
+      }
+    ],
+    "policies": []
+  },
+  "errors": {},
+  "identity": {
+    "database_name": "Noveltail",
+    "current_user": "postgres",
+    "session_user": "postgres",
+    "schema_name": "public",
+    "server_address": "::1",
+    "server_port": 5432,
+    "server_version": "18.6",
+    "transaction_read_only": "on",
+    "default_transaction_read_only": "on",
+    "isolation": "repeatable read",
+    "search_path": "\"$user\", public"
+  }
+}

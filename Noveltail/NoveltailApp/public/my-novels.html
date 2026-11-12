@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>My Novels | Noveltail</title>
+    <link rel="stylesheet" href="/write.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/my-novels.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <strong>My Novels</strong>
+    <a href="/">Home</a>
+</header>
+
+<main class="container">
+
+    <div id="login-required" hidden>
+        <h2>Sign in to manage your novels</h2>
+        <a href="/auth.html">Sign in</a>
+    </div>
+
+    <div id="app" hidden>
+
+        <div class="page-heading">
+            <p class="eyebrow">YOUR CREATIVE SPACE</p>
+            <h1>My Novels</h1>
+            <p>Manage your stories and chapters.</p>
+        </div>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Your Novels</h2>
+                    <p id="novel-count">Loading...</p>
+                </div>
+
+                <a href="/create-novel.html" class="manage-link">
+                    + Create Novel
+                </a>
+            </div>
+
+            <div id="novel-list" class="my-novels-list">
+                Loading novels...
+            </div>
+
+            <p id="message" class="message"></p>
+        </section>
+
+    </div>
+</main>
+
+<footer>Noveltail © 2026</footer>
+
+<script src="/profile-nav.js" defer></script>
+</body>
+</html>

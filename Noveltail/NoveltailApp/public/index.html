@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+
+    <title>Noveltail - Read Stories. Create Worlds.</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/script.js" defer></script>
+    <script src="/announcement-carousel.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+
+    
+<header class="navbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+
+    <nav>
+        <a href="/">Discover</a>
+        <a href="#genres">Genres</a>
+        <a href="/announcements.html">Announcements</a>
+        <a href="/bookmarks.html">♡ Bookmarks</a>
+        <a href="/history.html">Reading History</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="/auth.html" class="login-link" id="auth-link">
+            Login
+        </a>
+
+        <a href="/auth.html?mode=register"
+           class="write-button"
+           id="write-link">
+            Start Writing
+        </a>
+    </div>
+</header>
+
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <p class="eyebrow">A WORLD OF STORIES</p>
+
+            <h1>
+                Read stories.<br>
+                <span>Create worlds.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover new stories and build imaginative worlds
+                with readers and writers.
+            </p>
+
+            <form id="search-form" class="search-box">
+                <span class="search-icon">⌕</span>
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search titles or writers..."
+                    autocomplete="off"
+                >
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section id="home-announcements"
+                 class="announcement-carousel"
+                 aria-label="Pinned announcements"
+                 aria-roledescription="carousel"
+                 hidden>
+            <div class="announcement-carousel__heading">
+                <p class="eyebrow">LATEST UPDATES</p>
+                <h2>Announcements</h2>
+            </div>
+            <div id="announcement-slides"
+                 class="announcement-carousel__slides"
+                 aria-live="polite"></div>
+            <div id="announcement-carousel-controls"
+                 class="announcement-carousel__controls"
+                 hidden>
+                <button id="announcement-previous"
+                        type="button"
+                        aria-label="Previous announcement">Previous</button>
+                <div id="announcement-indicators"
+                     class="announcement-carousel__indicators"
+                     role="group"
+                     aria-label="Choose announcement"></div>
+                <button id="announcement-next"
+                        type="button"
+                        aria-label="Next announcement">Next</button>
+                <button id="announcement-autoplay"
+                        type="button"
+                        aria-pressed="false"
+                        aria-label="Pause automatic announcements">Pause</button>
+            </div>
+        </section>
+
+        <!-- Genres -->
+        <section class="genres-section" id="genres">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">EXPLORE</p>
+                    <h2>Browse Genres</h2>
+                </div>
+
+                <button id="clear-genres" class="clear-button">
+                    Clear filters
+                </button>
+            </div>
+
+            <div id="genre-list" class="genre-list">
+                <p>Loading genres...</p>
+            </div>
+
+        </section>
+
+        <!-- Novel List -->
+        <section class="novels-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR NEXT JOURNEY</p>
+                    <h2>Discover Stories</h2>
+                    <p id="result-count" class="result-count">
+                        Loading novels...
+                    </p>
+                </div>
+
+                <select id="sort-select" aria-label="Sort novels">
+                    <option value="latest">Latest</option>
+                    <option value="popular">Most Viewed</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
+
+            <div id="novel-list" class="novel-grid">
+                <p>Loading novels...</p>
+            </div>
+
+            <div id="empty-message" hidden>
+                <h3>No novels found</h3>
+                <p>Try changing your search or selected genre.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="/" class="logo">Noveltail<span>.</span></a>
+        <p>Read stories. Create worlds.</p>
+        <p class="copyright">© 2026 Noveltail. All rights reserved.</p>
+    </footer>
+
+    <script src="/profile-nav.js" defer></script>
+</body>
+</html>

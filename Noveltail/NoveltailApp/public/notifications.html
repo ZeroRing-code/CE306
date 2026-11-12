@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Notifications | Noveltail</title>
+    <link rel="stylesheet" href="/write.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <link rel="stylesheet" href="/notifications.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/profile-nav.js" defer></script>
+    <script src="/notifications.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <strong>Notifications</strong>
+    <a href="/">Home</a>
+</header>
+
+<main class="notifications-page">
+    <h1>Notification Inbox</h1>
+    <div class="notification-filters">
+        <label>Category
+            <select id="filter-category">
+                <option value="">All categories</option>
+                <option value="system">System</option>
+                <option value="account">Account</option>
+                <option value="novel">Novel</option>
+                <option value="engagement">Engagement</option>
+                <option value="transaction">Transaction</option>
+            </select>
+        </label>
+        <label>Status
+            <select id="filter-status">
+                <option value="all">All</option>
+                <option value="unread">Unread</option>
+                <option value="read">Read</option>
+            </select>
+        </label>
+        <label>Search
+            <input id="filter-search" type="search" maxlength="160" placeholder="Search notifications">
+        </label>
+        <label>Search match
+            <select id="filter-logic">
+                <option value="AND">Match all terms (AND)</option>
+                <option value="OR">Match any term (OR)</option>
+            </select>
+        </label>
+    </div>
+    <p id="notification-status" class="notification-status" role="status"></p>
+    <div class="notification-actions">
+        <div class="action">
+            <button type="button" id="read-all">Read All</button>
+            <small id="read-all-reason"></small>
+        </div>
+        <div class="action">
+            <button type="button" id="clear-read">Clear Read</button>
+            <small id="clear-read-reason"></small>
+        </div>
+        <div class="action">
+            <button type="button" id="clear-all">Clear All</button>
+            <small id="clear-all-reason"></small>
+        </div>
+    </div>
+    <div id="notification-list" class="notification-list"></div>
+    <p id="notification-empty" class="notification-empty" hidden>No notifications match these filters.</p>
+    <div class="notification-pagination">
+        <button type="button" id="previous-page">Previous</button>
+        <span id="page-label"></span>
+        <button type="button" id="next-page">Next</button>
+    </div>
+</main>
+
+<dialog id="confirm-dialog" class="notification-dialog">
+    <h2>Confirm Notification Deletion</h2>
+    <p id="confirm-message"></p>
+    <ul id="confirm-counts"></ul>
+    <div class="notification-dialog-actions">
+        <button type="button" data-cancel>Cancel</button>
+        <button type="button" data-confirm>Confirm Delete</button>
+    </div>
+</dialog>
+<dialog id="summary-dialog" class="notification-dialog">
+    <h2>Notification Deleted</h2>
+    <p id="summary-message"></p>
+    <ul id="summary-counts"></ul>
+    <div class="notification-dialog-actions">
+        <button type="button" data-close>Close</button>
+    </div>
+</dialog>
+</body>
+</html>

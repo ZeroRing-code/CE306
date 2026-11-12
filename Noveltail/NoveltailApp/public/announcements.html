@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Announcements | Noveltail</title>
+    <link rel="stylesheet" href="/write.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <link rel="stylesheet" href="/community.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/profile-nav.js" defer></script>
+    <script src="/announcements.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <strong>Website Announcements</strong>
+    <a href="/">Home</a>
+</header>
+<main class="community-page">
+    <h1>Announcements</h1>
+    <p class="community-muted">Updates published here are visible to everyone.</p>
+    <p id="announcements-status" class="community-status" role="status" aria-live="polite"></p>
+    <section id="announcements-list" class="community-list" aria-live="polite"></section>
+</main>
+<dialog id="announcement-dialog" class="community-panel">
+    <h2 id="announcement-title"></h2>
+    <p id="announcement-date" class="community-muted"></p>
+    <div id="announcement-content" class="community-details"></div>
+    <div class="community-actions">
+        <button id="announcement-close" type="button">Close</button>
+    </div>
+</dialog>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Edit Novel | Noveltail</title>
+    <link rel="stylesheet" href="/image-cropper.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f8;
+            color: #29283a;
+            margin: 0;
+            padding: 30px 16px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 14px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input:not([type="checkbox"]):not([type="file"]),
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d8d7e0;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px dashed #aaa;
+            border-radius: 8px;
+        }
+
+        small {
+            display: block;
+            color: #5f5c6a;
+            margin-top: 7px;
+        }
+
+        #genre-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+        }
+
+        .genre-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: normal;
+        }
+
+        .image-preview-container {
+            width: 180px;
+            aspect-ratio: 3 / 4;
+            margin-top: 12px;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #eee;
+        }
+
+        #cover-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #cover-preview[hidden] {
+            display: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #7161d8;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #message {
+            margin-top: 15px;
+            color: #7161d8;
+        }
+
+        a {
+            color: #7161d8;
+        }
+    </style>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+
+<body>
+
+<main class="container">
+
+    <h1>Edit Novel</h1>
+
+    <form id="edit-form">
+
+        <div class="form-group">
+            <label for="title">Novel title</label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                maxlength="200"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+                id="description"
+                name="description"
+                maxlength="5000"
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="cover_image_url">Cover image URL</label>
+            <input
+                type="url"
+                id="cover_image_url"
+                name="cover_image_url"
+                placeholder="https://example.com/cover.jpg"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="cover-image">Choose a new cover image</label>
+
+            <input
+                type="file"
+                id="cover-image"
+                accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
+            >
+
+            <small>JPG, JPEG, PNG, and WebP files up to 10 MB are supported.</small>
+
+            <div class="image-preview-container">
+                <img
+                    id="cover-preview"
+                    alt="Novel cover preview"
+                    hidden
+                >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Genres</label>
+            <div id="genre-list">Loading genres...</div>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Publication status</label>
+
+            <select id="status" name="status">
+                <option value="ongoing">Ongoing</option>
+                <option value="completed">Completed</option>
+                <option value="hiatus">On hold</option>
+            </select>
+        </div>
+
+        <button type="submit" id="submit-button">
+            Save Changes
+        </button>
+
+        <p id="message"></p>
+
+    </form>
+
+    <a href="/my-novels.html">Back to My Novels</a>
+
+</main>
+
+<script src="/csrf.js" defer></script>
+<script src="/image-cropper.js" defer></script>
+<script src="/edit-novel.js" defer></script>
+
+</body>
+</html>

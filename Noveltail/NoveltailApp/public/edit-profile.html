@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Edit Profile | Noveltail</title>
+    <link rel="stylesheet" href="/image-cropper.css">
+    <script src="/csrf.js" defer></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f8;
+            color: #29283a;
+            margin: 0;
+            padding: 30px 16px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 14px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input:not([type="file"]),
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d8d7e0;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px dashed #aaa;
+            border-radius: 8px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        #avatar-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #eee;
+            display: block;
+            margin: 12px 0;
+        }
+
+        #avatar-image[hidden] {
+            display: none;
+        }
+
+        small {
+            display: block;
+            color: #5f5c6a;
+            margin-top: 7px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #7161d8;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #message {
+            margin-top: 15px;
+            color: #7161d8;
+        }
+
+        a {
+            color: #7161d8;
+        }
+    </style>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+
+<body>
+
+<main class="container">
+
+    <h1>Edit Profile</h1>
+
+    <form id="profile-form">
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                readonly
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="display-name">Display name</label>
+            <input
+                type="text"
+                id="display-name"
+                name="display_name"
+                maxlength="50"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea
+                id="bio"
+                name="bio"
+                maxlength="500"
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="avatar-url">Profile image URL</label>
+            <input
+                type="url"
+                id="avatar-url"
+                name="avatar_url"
+                placeholder="https://example.com/avatar.jpg"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="avatar-file">Choose a profile image</label>
+
+            <input
+                type="file"
+                id="avatar-file"
+                accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
+            >
+
+            <small>JPG, JPEG, PNG, and WebP files up to 10 MB are supported.</small>
+
+            <img
+                id="avatar-image"
+                alt="Profile image preview"
+                hidden
+            >
+        </div>
+
+        <button type="submit" id="submit-button">
+            Save Profile
+        </button>
+
+        <p id="message"></p>
+
+    </form>
+
+    <a id="profile-link" href="/profile.html">Back to Profile</a>
+
+</main>
+
+<script src="/image-cropper.js" defer></script>
+<script src="/edit-profile.js" defer></script>
+
+</body>
+</html>

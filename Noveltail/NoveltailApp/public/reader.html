@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Chapter Reader | Noveltail</title>
+
+    <link rel="stylesheet" href="/reading.css">
+
+    <style>
+        /* =====================================
+           COMMENTS SECTION
+        ===================================== */
+
+        .comments-section {
+            margin-top: 45px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e3ec;
+        }
+
+        .comments-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .comments-heading h2 {
+            font-size: 22px;
+        }
+
+        .comments-count {
+            font-size: 13px;
+            color: #5f5c6a;
+        }
+
+        .comment-login {
+            background: #f5f2ff;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 22px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .comment-login a {
+            color: #7656d8;
+            font-weight: 600;
+        }
+
+        .comment-form {
+            margin-bottom: 28px;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            min-height: 110px;
+            resize: vertical;
+            padding: 14px;
+            border: 1px solid #dedbe8;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.7;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .comment-form textarea:focus {
+            border-color: #7656d8;
+            box-shadow: 0 0 0 3px rgba(118, 86, 216, 0.1);
+        }
+
+        .comment-form-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .comment-char-count {
+            font-size: 12px;
+            color: #5f5c6a;
+        }
+
+        .comment-submit {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            background: #7656d8;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .comment-submit:hover {
+            background: #6243bf;
+        }
+
+        .comment-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .comment-form-message {
+            font-size: 13px;
+            margin-top: 10px;
+            color: #777;
+        }
+
+        .comment-form-message.error {
+            color: #a82f2f;
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .comment-item {
+            background: #faf9fc;
+            border: 1px solid #eceaf1;
+            border-radius: 11px;
+            padding: 17px;
+        }
+
+        .comment-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .comment-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: #343044;
+        }
+
+        .comment-date {
+            font-size: 11px;
+            color: #5f5c6a;
+            margin-top: 4px;
+        }
+
+        .comment-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #555;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .comment-delete {
+            border: none;
+            background: #fff0f0;
+            color: #d34d4d;
+            padding: 6px 11px;
+            border-radius: 7px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .comment-delete:hover {
+            background: #ffe0e0;
+        }
+
+        .comment-delete:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .comments-empty,
+        .comments-loading {
+            text-align: center;
+            padding: 30px 15px;
+            color: #5f5c6a;
+            font-size: 14px;
+        }
+
+        @media (max-width: 500px) {
+            .comments-heading h2 {
+                font-size: 19px;
+            }
+
+            .comment-item {
+                padding: 13px;
+            }
+        }
+        /* Author badge */
+
+.comment-author-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.comment-author-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #f1edff;
+    color: #7656d8;
+    border: 1px solid #ded3ff;
+    border-radius: 20px;
+    padding: 3px 9px;
+    font-size: 10px;
+    font-weight: 700;
+}
+    </style>
+
+    <script src="/csrf.js" defer></script>
+    <script src="/report-dialog.js" defer></script>
+    <script src="/reader.js" defer></script>
+    <script src="/comments-client.js" defer></script>
+    <link rel="stylesheet" href="/profile-nav.css">
+    <script src="/default-images.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+
+<body>
+
+<header class="reading-header">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <a id="back-to-novel" href="/">Home</a>
+</header>
+
+<main class="reader-container">
+
+    <p id="reader-message">Loading chapter...</p>
+    <p>
+        <button
+            id="report-chapter-button"
+            type="button"
+            data-report-type="chapter"
+            data-report-id=""
+            hidden
+        >Report Chapter</button>
+    </p>
+    <section id="purchase-panel" class="novel-detail-layout" hidden>
+        <div class="detail-info">
+            <p class="eyebrow">PAID CHAPTER</p>
+            <h1 id="purchase-title"></h1>
+            <p id="purchase-description"></p>
+            <p id="purchase-balance"></p>
+            <button type="button" id="unlock-chapter-button" aria-label="Unlock chapter">
+                Unlock Chapter
+            </button>
+            <a id="purchase-login-link" href="/auth.html" hidden>Sign in to purchase</a>
+            <a href="/wallet.html">Open wallet</a>
+            <p id="purchase-message" role="status"></p>
+        </div>
+    </section>
+
+    <section id="reader" hidden>
+
+        <div class="reader-header">
+            <a id="novel-link" href="#">Back to chapters</a>
+
+            <p id="reader-author"></p>
+
+            <h1 id="reader-novel-title"></h1>
+
+            <p id="chapter-number"></p>
+
+            <h2 id="chapter-title"></h2>
+        </div>
+
+        <div class="reader-toolbar">
+            <button type="button" id="decrease-font" aria-label="Decrease text size">
+                Decrease Text
+            </button>
+
+            <span>Text size</span>
+
+            <button type="button" id="increase-font" aria-label="Increase text size">
+                Increase Text
+            </button>
+        </div>
+
+        <article id="chapter-content" class="chapter-content"></article>
+
+        <nav class="chapter-navigation">
+            <a id="previous-chapter" href="#">
+                ← Previous chapter
+            </a>
+
+            <a id="chapter-list-link" href="#">
+                Chapters
+            </a>
+
+            <a id="next-chapter" href="#">
+                Next chapter →
+            </a>
+        </nav>
+
+
+        <!-- =====================================
+             COMMENTS
+        ====================================== -->
+
+        <section id="comments-section" class="comments-section">
+
+            <div class="comments-heading">
+                <h2>Comments</h2>
+                <span id="comments-count" class="comments-count">
+                    0 comments
+                </span>
+            </div>
+
+            <!-- Shown when signed out -->
+            <div id="comment-login" class="comment-login" hidden>
+                Sign in to comment
+                <a href="/auth.html">Sign in</a>
+            </div>
+
+            <!-- Comment form -->
+            <form id="comment-form" class="comment-form" hidden>
+
+                <textarea
+                    id="comment-input"
+                    maxlength="2000"
+                    placeholder="Write your comment..."
+                    required
+                ></textarea>
+
+                <div class="comment-form-bottom">
+
+                    <span id="comment-char-count" class="comment-char-count">
+                        0 / 2000
+                    </span>
+
+                    <button
+                        type="submit"
+                        id="comment-submit"
+                        class="comment-submit"
+                    >
+                            Submit comment
+                    </button>
+
+                </div>
+
+                <p
+                    id="comment-form-message"
+                    class="comment-form-message"
+                    role="status"
+                ></p>
+
+            </form>
+
+            <!-- Comment list -->
+            <div
+                id="comments-list"
+                class="comments-list"
+                aria-live="polite"
+            >
+                <p class="comments-loading">
+                    Loading comments...
+                </p>
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+<footer>Noveltail © 2026</footer>
+
+<script src="/profile-nav.js" defer></script>
+</body>
+</html>

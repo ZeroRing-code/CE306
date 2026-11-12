@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Login | Noveltail</title>
+    <link rel="stylesheet" href="/auth.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/auth-page.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+
+    <header class="auth-header">
+        <a href="/" class="logo">Noveltail<span>.</span></a>
+        <p>Read stories. Create worlds.</p>
+    </header>
+
+    <main>
+        <section class="auth-card">
+
+            <div id="auth-forms">
+
+                <div class="tabs">
+                    <button type="button" class="tab active" id="login-tab">
+                        Login
+                    </button>
+                    <button type="button" class="tab" id="register-tab">
+                        Register
+                    </button>
+                </div>
+
+                <div class="heading">
+                    <h1 id="form-title">Welcome back</h1>
+                    <p id="form-subtitle">Sign in to continue to your stories.</p>
+                </div>
+
+                <div id="message" role="status"></div>
+
+                <!-- LOGIN -->
+                <form id="login-form">
+
+                    <label>Username or email</label>
+                    <input
+                        type="text"
+                        name="identifier"
+                        placeholder="Enter your username or email"
+                        required
+                    >
+
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button type="submit" class="submit-button">
+                        Login
+                    </button>
+
+                </form>
+
+                <!-- REGISTER -->
+                <form id="register-form" hidden>
+
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        minlength="3"
+                        maxlength="30"
+                        pattern="[a-zA-Z0-9_]+"
+                        required
+                    >
+
+                    <label>Display Name</label>
+                    <input
+                        type="text"
+                        name="display_name"
+                        placeholder="Display name"
+                        maxlength="50"
+                    >
+
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="At least 8 characters"
+                        minlength="8"
+                        required
+                    >
+
+                    <button type="submit" class="submit-button">
+                        Register
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- ACCOUNT -->
+            <div id="account-panel" hidden>
+                <h1>Welcome to Noveltail!</h1>
+                <p id="account-info"></p>
+                <button type="button" id="logout-button" class="submit-button">
+                    Logout
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Noveltail. All rights reserved.
+    </footer>
+
+</body>
+</html>

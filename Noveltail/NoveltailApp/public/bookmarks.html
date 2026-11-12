@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <title>Bookmarks | Noveltail</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #f7f7fb;
+            color: #25243a;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #e9e8f0;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: 800;
+            color: #7656d8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #666579;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #7656d8;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 90%;
+            margin: 45px auto;
+        }
+
+        .page-heading {
+            margin-bottom: 30px;
+        }
+
+        .page-heading .eyebrow {
+            color: #7656d8;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .page-heading h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .page-heading p {
+            color: #5f5c6a;
+            font-size: 15px;
+        }
+
+        .feedback {
+            background: #fff;
+            border: 1px solid #e9e8f0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: #666579;
+        }
+
+        .feedback.error {
+            color: #c0392b;
+            background: #fff5f4;
+            border-color: #ffd8d3;
+        }
+
+        .bookmark-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .bookmark-card {
+            display: flex;
+            gap: 18px;
+            background: #fff;
+            border: 1px solid #ecebf2;
+            border-radius: 14px;
+            padding: 16px;
+            transition: 0.2s;
+        }
+
+        .bookmark-card:hover {
+            border-color: #c8b9f5;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(50, 35, 90, 0.06);
+        }
+
+        .cover-box {
+            width: 115px;
+            min-width: 115px;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 9px;
+            background: #eeeaf8;
+        }
+
+        .cover-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-info {
+            min-width: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-status {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 11px;
+            color: #5f5c6a;
+            margin-bottom: 10px;
+        }
+
+        .status-label {
+            color: #7656d8;
+            background: #f1edff;
+            padding: 4px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .book-info h2 {
+            font-size: 17px;
+            margin-bottom: 6px;
+            overflow-wrap: anywhere;
+        }
+
+        .book-info h2 a:hover {
+            color: #7656d8;
+        }
+
+        .author {
+            font-size: 12px;
+            color: #5f5c6a;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 13px;
+            color: #666579;
+            line-height: 1.6;
+            display: block;
+            line-clamp: 3;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        .views {
+            font-size: 12px;
+            color: #5f5c6a;
+            margin-top: auto;
+            margin-bottom: 12px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+        }
+
+        .read-button,
+        .remove-button {
+            border: none;
+            border-radius: 8px;
+            padding: 9px 13px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: 600;
+        }
+
+        .read-button {
+            background: #7656d8;
+            color: white;
+        }
+
+        .read-button:hover {
+            background: #6243bf;
+        }
+
+        .remove-button {
+            background: #fff0f0;
+            color: #a82f2f;
+        }
+
+        .remove-button:hover {
+            background: #ffe0e0;
+        }
+
+        .remove-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .empty-state {
+            text-align: center;
+            background: #fff;
+            border: 1px dashed #d8d3e8;
+            border-radius: 15px;
+            padding: 65px 20px;
+        }
+
+        .empty-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #5f5c6a;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .browse-button {
+            display: inline-block;
+            background: #7656d8;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 750px) {
+            .bookmark-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .container {
+                margin-top: 30px;
+            }
+
+            .page-heading h1 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .bookmark-card {
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .cover-box {
+                width: 90px;
+                min-width: 90px;
+                height: 130px;
+            }
+
+            .book-info h2 {
+                font-size: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="brand">Noveltail</a>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="my-novels.html">My Novels</a>
+        <a href="bookmarks.html" class="active">Bookmarks</a>
+        <a href="history.html">Reading History</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="page-heading">
+        <div class="eyebrow">MY LIBRARY</div>
+        <h1>Bookmarks</h1>
+        <p>Keep your favorite stories in one place.</p>
+    </section>
+
+    <div id="feedback" class="feedback" role="status" hidden></div>
+
+    <section id="bookmark-list" class="bookmark-grid"></section>
+
+    <section id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon">♡</div>
+        <h2>No bookmarked novels yet</h2>
+        <p>Browse novels and bookmark the ones you like.</p>
+        <a href="index.html" class="browse-button">Browse Novels</a>
+    </section>
+
+</main>
+
+<script src="/csrf.js" defer></script>
+<script src="/default-images.js" defer></script>
+<script src="/bookmarks.js" defer></script>
+<script src="/profile-nav.js" defer></script>
+
+</body>
+</html>

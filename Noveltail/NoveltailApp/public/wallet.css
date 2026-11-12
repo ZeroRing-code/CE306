@@ -1,0 +1,140 @@
+.wallet-page {
+    max-width: 1000px;
+    margin: 36px auto;
+    padding: 0 20px;
+    color: #29283a;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.wallet-card,
+.wallet-section {
+    padding: 24px;
+    border: 1px solid #eceaf1;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.wallet-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.wallet-card h1 {
+    margin: 0 0 8px;
+}
+
+.wallet-balance {
+    color: #7656d8;
+    font-size: clamp(30px, 7vw, 46px);
+    font-weight: 800;
+}
+
+.wallet-note,
+.wallet-muted {
+    color: #777487;
+}
+
+.wallet-section {
+    margin: 20px 0;
+}
+
+.wallet-packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.wallet-packages button,
+.wallet-admin button {
+    min-height: 44px;
+    border: 1px solid #7656d8;
+    border-radius: 8px;
+    color: white;
+    background: #7656d8;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.wallet-packages button:hover,
+.wallet-admin button:hover {
+    background: #6244c2;
+}
+
+.wallet-packages button:disabled,
+.wallet-admin button:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+.wallet-transactions {
+    display: grid;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.wallet-transaction {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px;
+    border-bottom: 1px solid #eeeaf5;
+}
+
+.wallet-transaction p {
+    margin: 4px 0;
+}
+
+.wallet-amount {
+    flex: 0 0 auto;
+    color: #51477a;
+    font-weight: 700;
+}
+
+.wallet-admin label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: 600;
+}
+
+.wallet-admin input,
+.wallet-admin select,
+.wallet-admin textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d8d7e0;
+    border-radius: 7px;
+    font: inherit;
+}
+
+.wallet-admin textarea {
+    min-height: 80px;
+}
+
+.wallet-message {
+    min-height: 1.4em;
+    color: #51477a;
+}
+
+@media (max-width: 520px) {
+    .wallet-page {
+        margin: 22px auto;
+        padding: 0 12px;
+    }
+
+    .wallet-card,
+    .wallet-section {
+        padding: 18px;
+    }
+
+    .wallet-transaction {
+        flex-direction: column;
+        gap: 4px;
+    }
+}

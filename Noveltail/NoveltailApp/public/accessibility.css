@@ -1,0 +1,11 @@
+:focus-visible {
+    outline: 3px solid #553d99;
+    outline-offset: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #553d99;
+    outline-offset: 2px;
+}

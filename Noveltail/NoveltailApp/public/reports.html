@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Content Reports | Noveltail</title>
+    <link rel="stylesheet" href="/community.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/profile-nav.js" defer></script>
+    <script src="/report-dialog.js" defer></script>
+    <script src="/reports.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <strong>Content Reports</strong>
+    <a href="/">Home</a>
+</header>
+<main class="community-page">
+    <h1>My Reports</h1>
+    <p id="reports-status" class="community-status" role="status" aria-live="polite"></p>
+    <div id="report-dialog-root"></div>
+    <section class="community-panel">
+        <h2>Report History</h2>
+        <div id="my-reports" class="community-list" aria-live="polite"></div>
+    </section>
+</main>
+</body>
+</html>

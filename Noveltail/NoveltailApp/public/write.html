@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/theme-init.js"></script>
+    <link rel="stylesheet" href="/accessibility.css">
+    <title>Chapter Editor | Noveltail</title>
+    <link rel="stylesheet" href="/write.css">
+    <link rel="stylesheet" href="/profile-nav.css">
+    <script src="/csrf.js" defer></script>
+    <script src="/default-images.js" defer></script>
+    <script src="/write.js" defer></script>
+    <link rel="stylesheet" href="/tailwind.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+    <a href="/" class="logo">Noveltail<span>.</span></a>
+    <strong>Chapter Editor</strong>
+    <a href="/my-novels.html">Back to My Novels</a>
+</header>
+
+<main class="container">
+
+    <div id="login-required" hidden>
+        <h2>Sign in to continue</h2>
+        <a href="/auth.html">Sign in</a>
+    </div>
+
+    <div id="writer-app" hidden>
+
+        <section class="panel">
+            <span class="step">CURRENT NOVEL</span>
+            <h1 id="novel-title">Loading...</h1>
+            <p id="novel-description"></p>
+        </section>
+
+        <section class="panel">
+
+            <div class="panel-heading">
+                <div>
+                    <span class="step">CHAPTER MANAGEMENT</span>
+                    <h2>Manage Chapters</h2>
+                </div>
+
+                <button type="button" id="new-chapter-button">
+                    + New Chapter
+                </button>
+            </div>
+
+            <div class="chapter-layout">
+
+                <aside class="chapter-sidebar">
+                    <div class="chapter-sidebar-heading">
+                        <h3>Chapter List</h3>
+                        <span id="chapter-count">0</span>
+                    </div>
+
+                    <div id="chapter-list">
+                        Loading...
+                    </div>
+                </aside>
+
+                <section class="chapter-editor" id="chapter-editor" hidden>
+
+                    <div class="editor-heading">
+                        <div>
+                            <span id="editor-mode" class="step">NEW CHAPTER</span>
+                            <h3 id="editor-title">Write a New Chapter</h3>
+                        </div>
+
+                        <span id="chapter-status-label">Draft</span>
+                    </div>
+
+                    <form id="chapter-form">
+                        <div class="field">
+    <label for="chapter-number">Chapter number *</label>
+
+    <input
+        id="chapter-number"
+        name="chapter_number"
+        type="number"
+        min="0"
+        step="1"
+        placeholder="For example: 0, 1, 2, 10"
+        required
+    >
+</div>
+
+                        <div class="field">
+                            <label for="chapter-title">Chapter title</label>
+                            <input
+                                id="chapter-title"
+                                name="title"
+                                type="text"
+                                maxlength="200"
+                                placeholder="Chapter title"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="chapter-content">Content</label>
+                            <textarea
+                                id="chapter-content"
+                                name="content"
+                                rows="24"
+                                placeholder="Start writing your chapter..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label>
+                                <input
+                                    id="chapter-is-paid"
+                                    name="is_paid"
+                                    type="checkbox"
+                                >
+                                Sell this chapter individually
+                            </label>
+                        </div>
+
+                        <div class="field" id="chapter-price-field" hidden>
+                            <label for="chapter-price">Price (coins)</label>
+                            <input
+                                id="chapter-price"
+                                name="price"
+                                type="number"
+                                min="1"
+                                max="2147483647"
+                                step="1"
+                                inputmode="numeric"
+                            >
+                            <small>The writer receives 90%; the platform receives 10%.</small>
+                        </div>
+
+                        <div class="editor-actions">
+
+                            <button
+                                type="submit"
+                                data-status="draft"
+                                class="secondary-button"
+                            >
+                                Save Draft
+                            </button>
+
+                            <button
+                                type="submit"
+                                data-status="published"
+                                id="publish-button"
+                            >
+                                Publish Chapter
+                            </button>
+
+                            <button
+                                type="button"
+                                id="delete-chapter-button"
+                                class="delete-button"
+                                hidden
+                            >
+                                Delete Chapter
+                            </button>
+
+                        </div>
+
+                        <p id="chapter-message" class="message"></p>
+
+                    </form>
+                </section>
+
+                <div id="editor-placeholder" class="editor-placeholder">
+                    <h3>No chapter selected</h3>
+                    <p>Select a chapter to edit it, or create a new chapter.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <div id="page-message"></div>
+
+</main>
+
+<footer>Noveltail © 2026</footer>
+
+<script src="/profile-nav.js" defer></script>
+</body>
+</html>

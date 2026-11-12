@@ -1,0 +1,427 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f7f7fa;
+    color: #292735;
+    font-family: Arial, sans-serif;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 6%;
+    background: white;
+    border-bottom: 1px solid #e9e8ee;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #6950b2;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 0 20px;
+}
+
+.page-heading {
+    margin-bottom: 30px;
+}
+
+.page-heading h1 {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.page-heading p {
+    color: #5f5c6a;
+}
+
+.eyebrow,
+.step {
+    color: #6950b2;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.panel {
+    background: white;
+    border: 1px solid #e9e8ee;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 25px;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.panel-heading h2 {
+    margin: 8px 0;
+}
+
+.panel-heading p {
+    color: #5f5c6a;
+    font-size: 13px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.field input,
+.field textarea {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.field textarea {
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #6950b2;
+}
+
+/* Genre */
+
+.genre-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.genre-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 13px;
+    background: #faf9fc;
+    border: 1px solid #e9e8ee;
+    border-radius: 7px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.genre-option:has(input:checked) {
+    background: #f0edfb;
+    border-color: #6950b2;
+}
+
+/* Buttons */
+
+button {
+    border: none;
+    border-radius: 7px;
+    background: #6950b2;
+    color: white;
+    padding: 12px 17px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.88;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    background: #f0eef5;
+    color: #554b72;
+}
+
+/* Novel list */
+
+.novel-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.novel-item {
+    text-align: left;
+    display: block;
+    width: 100%;
+    padding: 17px;
+    background: #faf9fc;
+    border: 1px solid #e9e8ee;
+    color: #292735;
+}
+
+.novel-item.active {
+    border-color: #6950b2;
+    background: #f0edfb;
+}
+
+.novel-item strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.novel-item small {
+    color: #5f5c6a;
+}
+
+/* Chapter manager */
+
+.chapter-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.chapter-sidebar {
+    border: 1px solid #e9e8ee;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.chapter-sidebar-heading {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-bottom: 1px solid #e9e8ee;
+}
+
+.chapter-sidebar-heading h3 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.chapter-sidebar-heading button {
+    padding: 9px 11px;
+}
+
+.chapter-item {
+    background: white;
+    color: #292735;
+    width: 100%;
+    padding: 14px;
+    text-align: left;
+    border-radius: 0;
+    border-bottom: 1px solid #eee;
+}
+
+.chapter-item.active {
+    background: #f0edfb;
+    color: #6950b2;
+}
+
+.chapter-item strong,
+.chapter-item small {
+    display: block;
+}
+
+.chapter-item small {
+    color: #5f5c6a;
+    margin-top: 6px;
+}
+
+.chapter-editor {
+    min-width: 0;
+}
+
+.editor-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    gap: 10px;
+}
+
+.editor-heading h3 {
+    margin: 8px 0;
+}
+
+#chapter-status-label {
+    font-size: 11px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: #f0eef5;
+}
+
+.editor-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.message {
+    font-size: 13px;
+    margin-top: 14px;
+    color: #6950b2;
+}
+
+.editor-placeholder {
+    color: #5f5c6a;
+    padding: 60px 15px;
+    text-align: center;
+    border: 1px dashed #ddd;
+    border-radius: 9px;
+}
+
+.editor-placeholder h3 {
+    color: #444;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #5f5c6a;
+    font-size: 12px;
+}
+
+@media (max-width: 750px) {
+    .chapter-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .novel-list {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .topbar {
+        padding: 17px 5%;
+    }
+}
+
+.my-novels-list {
+    display: grid;
+    gap: 12px;
+}
+
+.my-novel-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px;
+    background: #faf9fc;
+    border: 1px solid #e9e8ee;
+    border-radius: 9px;
+}
+
+.my-novel-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.my-novel-card p {
+    font-size: 12px;
+    color: #5f5c6a;
+    margin-top: 5px;
+}
+
+.novel-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.manage-link {
+    display: inline-block;
+    background: #6950b2;
+    color: white;
+    border-radius: 7px;
+    padding: 11px 14px;
+    font-size: 12px;
+}
+
+.delete-button {
+    background: #f9e9e9;
+    color: #b33a3a;
+}
+
+@media (max-width: 600px) {
+    .my-novel-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+.message.error {
+    color: #d43d3d;
+    font-weight: 600;
+}
+
+.message.success {
+    color: #26945b;
+    font-weight: 600;
+}
+
+.edit-link {
+    display: inline-block;
+    background: #eeeaf8;
+    color: #6950b2;
+    border-radius: 7px;
+    padding: 11px 14px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.field select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    background: white;
+    font-size: 14px;
+}
+
+.message.success {
+    color: #26945b;
+}
+
+.message.error {
+    color: #d43d3d;
+}
